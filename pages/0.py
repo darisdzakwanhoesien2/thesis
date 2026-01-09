@@ -195,7 +195,7 @@ if st.button("🚀 Run LLM", type="primary"):
                 "timestamp": ts,
                 "model": model_name,
                 "system_prompt": final_system_prompt,
-                "user_prompt": user_prompt[:10000],
+                "user_prompt": user_prompt,
                 "output": output,
                 "page_file": str(selected_page) if selected_page else None,
             }
