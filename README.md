@@ -51,46 +51,7 @@ MISTRAL_API_KEY=sk-xxxxxxxxxxxxxxxx
 > ⚠️ Endpoint may evolve. This is written in a **configurable way** so you only change URL + payload if needed.
 
 ```python
-import os
-import requests
 
-MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
-
-# Example endpoint — adjust if Mistral updates OCR API
-MISTRAL_OCR_URL = "https://api.mistral.ai/v1/ocr"
-
-HEADERS = {
-    "Authorization": f"Bearer {MISTRAL_API_KEY}"
-}
-
-
-def run_ocr(file_path: str):
-    with open(file_path, "rb") as f:
-        files = {
-            "file": f
-        }
-
-        data = {
-            "model": "mistral-ocr-latest"  # or vision-capable model
-        }
-
-        response = requests.post(
-            MISTRAL_OCR_URL,
-            headers=HEADERS,
-            files=files,
-            data=data,
-            timeout=120
-        )
-
-    if response.status_code != 200:
-        raise RuntimeError(response.text)
-
-    result = response.json()
-
-    # Expected field may differ — adjust if needed
-    text = result.get("text", "")
-
-    return text, result
 ```
 
 ---
@@ -98,28 +59,7 @@ def run_ocr(file_path: str):
 # ✅ utils/file_utils.py
 
 ```python
-import uuid
-from pathlib import Path
 
-
-TMP_DIR = Path("outputs")
-TMP_DIR.mkdir(exist_ok=True)
-
-
-def save_uploaded_file(uploaded_file):
-    suffix = Path(uploaded_file.name).suffix
-    path = TMP_DIR / f"{uuid.uuid4()}{suffix}"
-
-    with open(path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-
-    return path
-
-
-def save_text(text: str):
-    path = TMP_DIR / f"ocr_{uuid.uuid4()}.txt"
-    path.write_text(text, encoding="utf-8")
-    return path
 ```
 
 ---
@@ -127,62 +67,7 @@ def save_text(text: str):
 # ✅ app.py (Streamlit App)
 
 ```python
-import streamlit as st
-from dotenv import load_dotenv
 
-from services.mistral_ocr import run_ocr
-from utils.file_utils import save_uploaded_file, save_text
-
-load_dotenv()
-
-st.set_page_config(page_title="Mistral OCR App", layout="wide")
-st.title("📄 Mistral OCR — Image & PDF to Text")
-
-st.markdown("""
-Upload an **image or PDF**, run OCR using **Mistral**,  
-preview extracted text, and download the result.
-""")
-
-uploaded = st.file_uploader(
-    "Upload Image or PDF",
-    type=["png", "jpg", "jpeg", "pdf"]
-)
-
-if uploaded:
-    st.info("File uploaded successfully.")
-
-    if st.button("🔍 Run OCR"):
-        with st.spinner("Running OCR via Mistral..."):
-            try:
-                file_path = save_uploaded_file(uploaded)
-
-                text, raw = run_ocr(str(file_path))
-
-                st.success("OCR completed!")
-
-                st.subheader("📜 Extracted Text")
-                st.text_area(
-                    "OCR Output",
-                    value=text,
-                    height=350
-                )
-
-                txt_path = save_text(text)
-
-                with open(txt_path, "rb") as f:
-                    st.download_button(
-                        "⬇️ Download Text (.txt)",
-                        data=f,
-                        file_name=txt_path.name,
-                        mime="text/plain"
-                    )
-
-                with st.expander("🔧 Raw API Response"):
-                    st.json(raw)
-
-            except Exception as e:
-                st.error("OCR failed")
-                st.code(str(e))
 ```
 
 ---
@@ -242,3 +127,5 @@ Post-process text with:
 
 Just tell me which direction you want to extend this, and I’ll tailor it to your workflow (same style as your other Streamlit tools).
 # thesis
+
+https://chatgpt.com/c/69616a05-1e00-832e-bb0b-0e7e60f6b5ee
