@@ -1,24 +1,41 @@
-import uuid
 from pathlib import Path
 
-OUT_DIR = Path("outputs")
-OUT_DIR.mkdir(exist_ok=True)
+
+def list_pdf_folders(base_dir="outputs"):
+    base = Path(base_dir)
+    if not base.exists():
+        return []
+    return [p for p in base.iterdir() if p.is_dir() and p.name.endswith("_pdf")]
 
 
-def save_upload(uploaded_file):
-    ext = Path(uploaded_file.name).suffix
-    path = OUT_DIR / f"{uuid.uuid4()}{ext}"
-
-    with open(path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-
-    return path
+def list_md_pages(pdf_folder):
+    pages_dir = Path(pdf_folder) / "pages"
+    if not pages_dir.exists():
+        return []
+    return sorted(pages_dir.glob("page_*.md"))
 
 
-def save_text(text):
-    path = OUT_DIR / f"ocr_{uuid.uuid4()}.txt"
-    path.write_text(text, encoding="utf-8")
-    return path
+# import uuid
+# from pathlib import Path
+
+# OUT_DIR = Path("outputs")
+# OUT_DIR.mkdir(exist_ok=True)
+
+
+# def save_upload(uploaded_file):
+#     ext = Path(uploaded_file.name).suffix
+#     path = OUT_DIR / f"{uuid.uuid4()}{ext}"
+
+#     with open(path, "wb") as f:
+#         f.write(uploaded_file.getbuffer())
+
+#     return path
+
+
+# def save_text(text):
+#     path = OUT_DIR / f"ocr_{uuid.uuid4()}.txt"
+#     path.write_text(text, encoding="utf-8")
+#     return path
 
 
 # import uuid
