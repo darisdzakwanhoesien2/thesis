@@ -1,0 +1,260 @@
+{
+  "models": [
+    {
+      "id": "xiaomi/mimo-v2-flash:free",
+      "label": "Xiaomi MiMo V2 Flash (Free)",
+      "provider": "xiaomi",
+      "context": 262144,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "mistralai/devstral-2512:free",
+      "label": "Mistral Devstral 25.12 (Free)",
+      "provider": "mistral",
+      "context": 262144,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "tngtech/deepseek-r1t2-chimera:free",
+      "label": "DeepSeek R1T2 Chimera (Free)",
+      "provider": "tngtech",
+      "context": 163840,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "kwaipilot/kat-coder-pro:free",
+      "label": "KAT Coder Pro (Free)",
+      "provider": "kwaipilot",
+      "context": 256000,
+      "tier": "free",
+      "type": "code"
+    },
+    {
+      "id": "tngtech/deepseek-r1t-chimera:free",
+      "label": "DeepSeek R1T Chimera (Free)",
+      "provider": "tngtech",
+      "context": 163840,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "qwen/qwen3-coder:free",
+      "label": "Qwen3 Coder (Free)",
+      "provider": "qwen",
+      "context": 262000,
+      "tier": "free",
+      "type": "code"
+    },
+    {
+      "id": "z-ai/glm-4.5-air:free",
+      "label": "GLM 4.5 Air (Free)",
+      "provider": "z-ai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+      "label": "Nemotron 3 Nano 30B A3B (Free)",
+      "provider": "nvidia",
+      "context": 256000,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "deepseek/deepseek-r1-0528:free",
+      "label": "DeepSeek R1 0528 (Free)",
+      "provider": "deepseek",
+      "context": 163840,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "nvidia/nemotron-nano-12b-v2-vl:free",
+      "label": "Nemotron Nano 12B V2 VL (Free)",
+      "provider": "nvidia",
+      "context": 128000,
+      "tier": "free",
+      "type": "vision"
+    },
+    {
+      "id": "tngtech/tng-r1t-chimera:free",
+      "label": "TNG R1T Chimera (Free)",
+      "provider": "tngtech",
+      "context": 163840,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "google/gemma-3-27b-it:free",
+      "label": "Gemma 3 27B IT (Free)",
+      "provider": "google",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "meta-llama/llama-3.3-70b-instruct:free",
+      "label": "LLaMA 3.3 70B Instruct (Free)",
+      "provider": "meta",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "openai/gpt-oss-120b:free",
+      "label": "GPT-OSS 120B (Free)",
+      "provider": "openai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+      "label": "Dolphin Mistral 24B Venice (Free)",
+      "provider": "cognitivecomputations",
+      "context": 32768,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "google/gemini-2.0-flash-exp:free",
+      "label": "Gemini 2.0 Flash Exp (Free)",
+      "provider": "google",
+      "context": 1048576,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "nousresearch/hermes-3-llama-3.1-405b:free",
+      "label": "Hermes 3 LLaMA 3.1 405B (Free)",
+      "provider": "nousresearch",
+      "context": 131072,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "openai/gpt-oss-20b:free",
+      "label": "GPT-OSS 20B (Free)",
+      "provider": "openai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct:free",
+      "label": "Mistral 7B Instruct (Free)",
+      "provider": "mistral",
+      "context": 32768,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "mistralai/mistral-small-3.1-24b-instruct:free",
+      "label": "Mistral Small 3.1 24B (Free)",
+      "provider": "mistral",
+      "context": 128000,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "meta-llama/llama-3.1-405b-instruct:free",
+      "label": "LLaMA 3.1 405B Instruct (Free)",
+      "provider": "meta",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "arcee-ai/trinity-mini:free",
+      "label": "Trinity Mini (Free)",
+      "provider": "arcee-ai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "nvidia/nemotron-nano-9b-v2:free",
+      "label": "Nemotron Nano 9B V2 (Free)",
+      "provider": "nvidia",
+      "context": 128000,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "meta-llama/llama-3.2-3b-instruct:free",
+      "label": "LLaMA 3.2 3B Instruct (Free)",
+      "provider": "meta",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "qwen/qwen3-4b:free",
+      "label": "Qwen3 4B (Free)",
+      "provider": "qwen",
+      "context": 40960,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "qwen/qwen-2.5-vl-7b-instruct:free",
+      "label": "Qwen 2.5 VL 7B Instruct (Free)",
+      "provider": "qwen",
+      "context": 32768,
+      "tier": "free",
+      "type": "vision"
+    },
+    {
+      "id": "google/gemma-3n-e2b-it:free",
+      "label": "Gemma 3N E2B IT (Free)",
+      "provider": "google",
+      "context": 8192,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "google/gemma-3-4b-it:free",
+      "label": "Gemma 3 4B IT (Free)",
+      "provider": "google",
+      "context": 32768,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "google/gemma-3-12b-it:free",
+      "label": "Gemma 3 12B IT (Free)",
+      "provider": "google",
+      "context": 32768,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "google/gemma-3n-e4b-it:free",
+      "label": "Gemma 3N E4B IT (Free)",
+      "provider": "google",
+      "context": 8192,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "allenai/molmo-2-8b:free",
+      "label": "Molmo 2 8B (Free)",
+      "provider": "allenai",
+      "context": 36864,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "moonshotai/kimi-k2:free",
+      "label": "Kimi K2 (Free)",
+      "provider": "moonshotai",
+      "context": 32768,
+      "tier": "free",
+      "type": "chat"
+    }
+  ]
+}
