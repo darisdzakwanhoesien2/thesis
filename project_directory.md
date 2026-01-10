@@ -3,8 +3,24 @@
 **Root:** `/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/esg_project/thesis_pre_processing`
 
   📄 .env<br>
+  📄 .gitignore<br>
   📄 README.md<br>
   📄 app.py<br>
+<details><summary>📁 logs/</summary>
+    📄 absa_log_20260110_011831.json<br>
+    📄 absa_log_20260110_011851.json<br>
+    📄 absa_log_20260110_012428.json<br>
+    📄 absa_log_20260110_012636.json<br>
+    📄 bulk_absa_20260110_015125.json<br>
+    📄 bulk_absa_20260110_015327.json<br>
+    📄 bulk_absa_20260110_015424.json<br>
+    📄 bulk_absa_20260110_015610.json<br>
+    📄 bulk_absa_20260110_015622.json<br>
+    📄 bulk_absa_20260110_015759.json<br>
+    📄 bulk_absa_20260110_020026.json<br>
+    📄 bulk_absa_20260110_020227.json<br>
+    📄 registry.json<br>
+</details>
   📄 mistral_api.py<br>
   📄 models.py<br>
   📄 ocr_utils.py<br>
@@ -351,8 +367,18 @@
 </details>
 <details><summary>📁 pages/</summary>
     📄 0.py<br>
+    📄 1_bulk.py<br>
+    📄 2_results.py<br>
 </details>
   📄 project_directory.md<br>
+<details><summary>📁 prompts/</summary>
+    📄 absa_cot.md<br>
+    📄 absa_esg_full.md<br>
+    📄 absa_few_shot.md<br>
+    📄 absa_light.md<br>
+    📄 absa_policy_focus.md<br>
+    📄 absa_zero_shot.md<br>
+</details>
   📄 requirements.txt<br>
 <details><summary>📁 services/</summary>
     📄 mistral_api.py<br>
