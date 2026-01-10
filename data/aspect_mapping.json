@@ -1,0 +1,478 @@
+{
+  "mappings": [
+    {
+      "aliases": [
+        "corporate responsibility",
+        "corporate social responsibility",
+        "corporate citizenship"
+      ],
+      "canonical": "corporate social responsibility"
+    },
+    {
+      "aliases": [
+        "value chain sustainability",
+        "value chain transformation",
+        "sustainable value chain"
+      ],
+      "canonical": "value chain"
+    },
+    {
+      "aliases": [
+        "governance practices",
+        "governance, social and environmental practices",
+        "corporate governance"
+      ],
+      "canonical": "corporate governance"
+    },
+    {
+      "aliases": [
+        "environmental conservation",
+        "climate change mitigation",
+        "environmental impact"
+      ],
+      "canonical": "environmental protection"
+    },
+    {
+      "aliases": [
+        "community involvement",
+        "philanthropy",
+        "disaster relief and humanitarian aid"
+      ],
+      "canonical": "community engagement"
+    }
+  ,    {
+      "aliases": [
+        "customer sustainability",
+        "customer sustainability empowerment"
+      ],
+      "canonical": "customer sustainability"
+    },
+    {
+      "aliases": [
+        "human impact",
+        "human-centered impact"
+      ],
+      "canonical": "human impact"
+    },
+    {
+      "aliases": [
+        "business practices",
+        "responsible business practices"
+      ],
+      "canonical": "responsible business practices"
+    },
+    {
+      "aliases": [
+        "partnerships for digital equity",
+        "partnerships for digital inclusion"
+      ],
+      "canonical": "digital partnerships for inclusion"
+    },
+    {
+      "aliases": [
+        "workforce development",
+        "workforce readiness"
+      ],
+      "canonical": "workforce development"
+    },
+    {
+      "aliases": [
+        "digital equity",
+        "digital equity programs"
+      ],
+      "canonical": "digital equity"
+    },
+    {
+      "aliases": [
+        "inclusive and sustainable future",
+        "sustainable future"
+      ],
+      "canonical": "sustainable future"
+    },
+    {
+      "aliases": [
+        "innovative technology",
+        "technology for business growth",
+        "technology for sustainability"
+      ],
+      "canonical": "technology and innovation"
+    },
+    {
+      "aliases": [
+        "animal welfare",
+        "animal welfare & product safety"
+      ],
+      "canonical": "animal welfare and product safety"
+    },
+    {
+      "aliases": [
+        "affordable food provision",
+        "food security"
+      ],
+      "canonical": "food security"
+    },
+    {
+      "aliases": [
+        "water management",
+        "water recycling"
+      ],
+      "canonical": "water stewardship"
+    },
+    {
+      "aliases": [
+        "none",
+        "reporting"
+      ],
+      "canonical": "water stewardship"
+    },
+    {
+      "aliases": [
+        "steering committee",
+        "sustainable impact steering committee"
+      ],
+      "canonical": "sustainable impact steering committee"
+    },
+    {
+      "aliases": [
+        "science-based targets",
+        "science-based targets, renewable energy, and human rights protections",
+        "sustainability initiatives"
+      ],
+      "canonical": "science-based targets and sustainability initiatives"
+    },
+    {
+      "aliases": [
+        "circular design collaboration",
+        "circular economy",
+        "circular economy initiatives"
+      ],
+      "canonical": "circular economy"
+    },
+    {
+      "aliases": [
+        "future of work",
+        "technology-driven future of work",
+        "future of work leadership"
+      ],
+      "canonical": "future of work"
+    },
+    {
+      "aliases": [
+        "commitment to people and planet",
+        "corporate values and commitments"
+      ],
+      "canonical": "corporate values and sustainability commitments"
+    },
+    {
+      "aliases": [
+        "environmental impact",
+        "environmental impact reduction",
+        "sustainable revenue"
+      ],
+      "canonical": "environmental impact and sustainable growth"
+    },
+    {
+      "aliases": [
+        "performance evaluation on sustainability",
+        "sustainability performance evaluation"
+      ],
+      "canonical": "sustainability performance evaluation"
+    },
+    {
+      "aliases": [
+        "stakeholder identification",
+        "stakeholder selection criteria"
+      ],
+      "canonical": "stakeholder identification and selection"
+    },
+    {
+      "aliases": [
+        "sustainability integration",
+        "sustainable impact integration"
+      ],
+      "canonical": "sustainability integration"
+    },
+    {
+      "aliases": [
+        "board oversight",
+        "board oversight of sustainability"
+      ],
+      "canonical": "board oversight of sustainability"
+    },
+    {
+      "aliases": [
+        "board briefing",
+        "board briefing on sustainability",
+        "board briefings on sustainability"
+      ],
+      "canonical": "board briefings on sustainability"
+    },
+    {
+      "aliases": [
+        "stakeholder engagement benefits",
+        "stakeholder interactions"
+      ],
+      "canonical": "stakeholder engagement"
+    },
+    {
+      "aliases": [
+        "governance outreach",
+        "stockholder engagement"
+      ],
+      "canonical": "shareholder and governance engagement"
+    },
+    {
+      "aliases": [
+        "supply chain worker safety",
+        "worker protection"
+      ],
+      "canonical": "worker safety and protection"
+    },
+    {
+      "aliases": [
+        "ecovadis rating",
+        "sustainability rating"
+      ],
+      "canonical": "sustainability ratings and assessments"
+    },
+    {
+      "aliases": [
+        "clean energy and climate change",
+        "clean energy and climate change initiatives",
+        "climate change initiatives"
+      ],
+      "canonical": "clean energy and climate change"
+    },
+
+    {
+      "aliases": [
+        "impact estimates",
+        "impact estimates uncertainty"
+      ],
+      "canonical": "impact estimation and uncertainty"
+    },
+    {
+      "aliases": [
+        "energy consumption during product use",
+        "product use energy consumption"
+      ],
+      "canonical": "product use energy consumption"
+    },
+    {
+      "aliases": [
+        "life cycle assessments (lcas) and product carbon footprinting (pcf)",
+        "life cycle assessments and product carbon footprinting"
+      ],
+      "canonical": "life cycle assessment and product carbon footprinting"
+    },
+    {
+      "aliases": [
+        "product energy use and co2e emissions",
+        "product energy use emissions"
+      ],
+      "canonical": "product energy use and emissions"
+    },
+    {
+      "aliases": [
+        "refining lca model",
+        "refining lca model for inkjet supplies"
+      ],
+      "canonical": "refining life cycle assessment models"
+    },
+    {
+      "aliases": [
+        "standardizing assumptions",
+        "standardizing assumptions for lifetime prints"
+      ],
+      "canonical": "standardizing life cycle assumptions"
+    },
+    {
+      "aliases": [
+        "carbon footprint tracking and offsetting",
+        "tracking and offsetting carbon footprint"
+      ],
+      "canonical": "carbon footprint tracking and offsetting"
+    },
+    {
+      "aliases": [
+        "reduction in absolute emissions",
+        "reduction in emissions"
+      ],
+      "canonical": "absolute emissions reduction"
+    },
+    {
+      "aliases": [
+        "energy-efficient designs and service-based solutions",
+        "energy-efficient designs and solutions"
+      ],
+      "canonical": "energy-efficient design and solutions"
+    },
+    {
+      "aliases": [
+        "mitigating uncertainty",
+        "mitigating uncertainty with hp-specific tools"
+      ],
+      "canonical": "uncertainty mitigation methods"
+    },
+    {
+      "aliases": [
+        "expanding lca product coverage",
+        "expanding product coverage"
+      ],
+      "canonical": "expanding life cycle assessment coverage"
+    },
+    {
+      "aliases": [
+        "sustainable business",
+        "sustainable business practices",
+        "sustainable business growth",
+        "strengthening sustainable business foundation"
+      ],
+      "canonical": "sustainable business practices"
+    },
+    {
+      "aliases": [
+        "global warming",
+        "global warming awareness"
+      ],
+      "canonical": "global warming"
+    },
+    {
+      "aliases": [
+        "environmental impact",
+        "environmental impact of operations"
+      ],
+      "canonical": "environmental impact"
+    },
+    {
+      "aliases": [
+        "environmental and social responsibility",
+        "environmental sustainability"
+      ],
+      "canonical": "environmental sustainability"
+    },
+    {
+      "aliases": [
+        "environmental and social impact assessment",
+        "impact assessment and mitigation"
+      ],
+      "canonical": "impact assessment and mitigation"
+    },
+    {
+      "aliases": [
+        "education",
+        "education and training",
+        "education support"
+      ],
+      "canonical": "education and training"
+    },
+    {
+      "aliases": [
+        "community health",
+        "community sanitation"
+      ],
+      "canonical": "community health"
+    },
+
+
+    {
+      "aliases": [
+        "sustainable finance",
+        "sustainable finance commitment"
+      ],
+      "canonical": "sustainable finance"
+    },
+    {
+      "aliases": [
+        "sustainability aspiration",
+        "sustainable aspiration",
+        "sustainable banking"
+      ],
+      "canonical": "sustainable aspiration"
+    },
+    {
+      "aliases": [
+        "human rights",
+        "human rights alignment"
+      ],
+      "canonical": "human rights"
+    },
+    {
+      "aliases": [
+        "corporate governance",
+        "good corporate governance"
+      ],
+      "canonical": "corporate governance"
+    },
+
+
+    {
+      "aliases": [
+        "partnerships",
+        "ownership",
+        "partnerships and collaborations"
+      ],
+      "canonical": "partnerships and collaborations"
+    },
+    {
+      "aliases": [
+        "digital transformation",
+        "digitalization"
+      ],
+      "canonical": "digital transformation"
+    },
+    {
+      "aliases": [
+        "resource efficiency",
+        "resource efficiency and renewable energy"
+      ],
+      "canonical": "resource efficiency"
+    },
+    {
+      "aliases": [
+        "inclusive business",
+        "inclusive business model",
+        "inclusive business practices"
+      ],
+      "canonical": "inclusive business"
+    },
+    {
+      "aliases": [
+        "economic impact",
+        "economic impact - local"
+      ],
+      "canonical": "economic impact"
+    },
+
+    {
+      "aliases": [
+        "community engagement",
+        "community involvement",
+        "stakeholder engagement"
+      ],
+      "canonical": "community engagement"
+    },
+    {
+      "aliases": [
+        "customer and community engagement",
+        "customer engagement"
+      ],
+      "canonical": "customer engagement"
+    },
+    {
+      "aliases": [
+        "community development",
+        "community development programs"
+      ],
+      "canonical": "community development"
+    },
+
+    {
+      "aliases": [
+        "business ethics",
+        "business ethics and transparency"
+      ],
+      "canonical": "business ethics and transparency"
+    }
+  ]
+}
