@@ -237,6 +237,58 @@ if all_rows:
 else:
     st.info("No structured ABSA data recovered.")
 
+# =====================================================
+# SENTENCE ALIGNMENT MATRIX
+# =====================================================
+
+st.subheader("🧬 Sentence-Level Comparison Across Runs")
+
+if all_rows:
+
+    df = pd.DataFrame(all_rows)
+
+    # Normalize sentence spacing
+    df["sentence_norm"] = df["sentence"].str.strip().str.replace(r"\s+", " ", regex=True)
+
+    run_names = sorted(df["file"].unique())
+    sentences = sorted(df["sentence_norm"].unique())
+
+    matrix = []
+
+    for s in sentences:
+        row = {"sentence": s}
+        subset = df[df["sentence_norm"] == s]
+
+        for run in run_names:
+            run_rows = subset[subset["file"] == run]
+
+            if run_rows.empty:
+                row[run] = ""
+            else:
+                merged = []
+                for _, r in run_rows.iterrows():
+                    merged.append(
+                        f'{r["aspect"]} ({r["category"]},{r["sentiment"]},{r["tone"]})'
+                    )
+                row[run] = " | ".join(merged)
+
+        matrix.append(row)
+
+    mat_df = pd.DataFrame(matrix)
+
+    st.dataframe(mat_df, use_container_width=True)
+
+    with st.expander("📥 Download Sentence Alignment CSV"):
+        st.download_button(
+            "Download Matrix CSV",
+            mat_df.to_csv(index=False).encode("utf-8"),
+            "sentence_alignment_matrix.csv",
+            mime="text/csv",
+        )
+
+else:
+    st.info("No structured data available for sentence comparison.")
+
 
 # import streamlit as st
 # from pathlib import Path
