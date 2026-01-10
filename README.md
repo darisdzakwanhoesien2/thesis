@@ -1,5 +1,7 @@
 Yes — we can build a **Streamlit OCR app using Mistral OCR**, where users upload images/PDFs, OCR is run via Mistral API, and the **text can be downloaded**. Below is a clean **project structure + complete starter code**.
 
+https://openrouter.ai/models?q=free&fmt=table
+
 I’ll keep the API call modular so you can easily swap models/endpoints if Mistral updates them.
 
 ---
