@@ -39,8 +39,7 @@ alias_set = set()
 for g in groups:
     canonical = g["canonical"].lower().strip()
     aliases = [a.lower().strip() for a in g["aliases"]]
-    for a in aliases:
-        alias_set.add(a)
+    alias_set.update(aliases)
     rows.append({
         "canonical": canonical,
         "aliases": ", ".join(sorted(aliases)),
@@ -64,7 +63,7 @@ with c2:
 with c3:
     st.metric("Avg Aliases / Group", round(map_df["alias_count"].mean(), 2) if not map_df.empty else 0)
 with c4:
-    st.metric("Max Aliases in Group", map_df["alias_count"].max() if not map_df.empty else 0)
+    st.metric("Max Aliases in Group", int(map_df["alias_count"].max()) if not map_df.empty else 0)
 
 # =====================================================
 # MAPPING GROUP TABLE
@@ -72,7 +71,10 @@ with c4:
 
 st.subheader("📚 Mapping Groups")
 
-st.dataframe(map_df.sort_values("alias_count", ascending=False), use_container_width=True)
+if not map_df.empty:
+    st.dataframe(map_df.sort_values("alias_count", ascending=False), use_container_width=True)
+else:
+    st.info("No mapping groups found.")
 
 # =====================================================
 # LOAD ASPECT LABELS FROM LOGS
@@ -134,17 +136,19 @@ with c2:
 with c3:
     st.metric("Unmapped Labels", len(unmapped))
 
-unmapped_rows = []
-
-for a in unmapped:
-    unmapped_rows.append({
+unmapped_rows = [
+    {
         "aspect_label": a,
         "frequency": counter[a],
         "experiment_sets": ", ".join(sorted(aspect_sets[a])),
-    })
+    }
+    for a in unmapped
+]
 
 if unmapped_rows:
-    unmapped_df = pd.DataFrame(unmapped_rows).sort_values("frequency", ascending=False)
+    unmapped_df = pd.DataFrame(unmapped_rows)
+    if "frequency" in unmapped_df.columns:
+        unmapped_df = unmapped_df.sort_values("frequency", ascending=False)
 else:
     unmapped_df = pd.DataFrame(columns=["aspect_label", "frequency", "experiment_sets"])
 
