@@ -1,0 +1,20 @@
+{
+  "models": [
+        {
+            "id": "allenai/molmo-2-8b:free",
+            "label": "Molmo 2 8B (Free)",
+            "provider": "allenai",
+            "context": 36864,
+            "tier": "free",
+            "type": "chat"
+        },
+        {
+            "id": "moonshotai/kimi-k2:free",
+            "label": "Kimi K2 (Free)",
+            "provider": "moonshotai",
+            "context": 32768,
+            "tier": "free",
+            "type": "chat"
+        }
+    ]
+}
