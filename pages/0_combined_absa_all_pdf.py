@@ -292,25 +292,6 @@ import json
 import pandas as pd
 
 # =====================================================
-# PATH SETUP
-# =====================================================
-
-# BASE_DIR = Path(__file__).resolve().parents[1]
-# LOGS_DIR = BASE_DIR / "logs"
-# REGISTRY_PATH = LOGS_DIR / "registry.json"
-# MAPPING_PATH = BASE_DIR / "data" / "aspect_mapping.json"
-
-PROJECT_ROOT = Path.cwd()
-
-LOGS_DIR = PROJECT_ROOT / "logs"
-DATA_DIR = PROJECT_ROOT / "data"
-
-LOGS_DIR.mkdir(parents=True, exist_ok=True)
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-REGISTRY_PATH = LOGS_DIR / "registry.json"
-MAPPING_PATH = DATA_DIR / "aspect_mapping.json"
-# =====================================================
 # PAGE CONFIG
 # =====================================================
 
@@ -321,6 +302,60 @@ st.markdown("""
 This page aggregates **all ABSA outputs from all experiment sets**
 into a unified **sentence × canonical aspect table**.
 """)
+
+# =====================================================
+# PATH DISCOVERY (DEPLOYMENT SAFE)
+# =====================================================
+
+def find_repo_root(start: Path) -> Path:
+    """
+    Walk upward until we find a directory containing 'logs/' or 'data/'.
+    This works reliably across Streamlit Cloud, Docker, and local runs.
+    """
+    start = start.resolve()
+
+    for parent in [start] + list(start.parents):
+        if (parent / "logs").exists() or (parent / "data").exists():
+            return parent
+
+    return start
+
+
+PROJECT_ROOT = find_repo_root(Path.cwd())
+
+LOGS_DIR = PROJECT_ROOT / "logs"
+DATA_DIR = PROJECT_ROOT / "data"
+
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+REGISTRY_PATH = LOGS_DIR / "registry.json"
+MAPPING_PATH = DATA_DIR / "aspect_mapping.json"
+
+# =====================================================
+# DIAGNOSTICS (SAFE TO REMOVE AFTER CONFIRMATION)
+# =====================================================
+
+with st.sidebar.expander("🧪 Path Diagnostics"):
+    st.write("cwd:", Path.cwd())
+    st.write("Resolved project root:", PROJECT_ROOT)
+    st.write("Logs dir:", LOGS_DIR)
+    st.write("Registry path:", REGISTRY_PATH)
+    st.write("Registry exists:", REGISTRY_PATH.exists())
+    st.write("Mapping path:", MAPPING_PATH)
+    st.write("Mapping exists:", MAPPING_PATH.exists())
+    st.write("Root contents:", [p.name for p in PROJECT_ROOT.iterdir()])
+
+# =====================================================
+# ENSURE REGISTRY EXISTS (NON-DESTRUCTIVE)
+# =====================================================
+
+if not REGISTRY_PATH.exists():
+    st.warning("⚠️ registry.json not found — initializing empty registry.")
+    REGISTRY_PATH.write_text(json.dumps({
+        "created_at": None,
+        "sets": {}
+    }, indent=2))
 
 # =====================================================
 # UTIL — ROBUST JSON RECOVERY
@@ -368,13 +403,12 @@ def safe_json_load(text):
             continue
     return recover_json_objects(text)
 
-
 # =====================================================
 # LOAD ASPECT MAPPING
 # =====================================================
 
 if not MAPPING_PATH.exists():
-    st.error("❌ data/aspect_mapping.json not found.")
+    st.error(f"❌ aspect_mapping.json not found at: {MAPPING_PATH}")
     st.stop()
 
 with open(MAPPING_PATH, "r", encoding="utf-8") as f:
@@ -386,22 +420,20 @@ for group in mapping_cfg.get("mappings", []):
     for alias in group["aliases"]:
         ASPECT_MAP[alias.lower().strip()] = canonical
 
-
 # =====================================================
-# LOAD REGISTRY (ALL SETS)
+# LOAD REGISTRY
 # =====================================================
 
-if not REGISTRY_PATH.exists():
-    st.error("❌ registry.json not found.")
+try:
+    with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
+        registry = json.load(f)
+except Exception as e:
+    st.error(f"❌ Failed to read registry.json: {e}")
     st.stop()
-
-with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
-    registry = json.load(f)
 
 sets = registry.get("sets", {})
 if not sets:
-    st.error("❌ No experiment sets found.")
-    st.stop()
+    st.warning("⚠️ Registry is empty — no experiment sets registered yet.")
 
 # =====================================================
 # COLLECT ALL UNIQUE LOG FILES
@@ -424,66 +456,69 @@ st.sidebar.metric("Total Runs", len(all_log_files))
 
 rows = []
 
-progress = st.progress(0.0)
+if all_log_files:
 
-for i, fname in enumerate(sorted(all_log_files), start=1):
+    progress = st.progress(0.0)
 
-    path = LOGS_DIR / fname
-    if not path.exists():
-        continue
+    for i, fname in enumerate(sorted(all_log_files), start=1):
 
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    parsed = safe_json_load(data.get("output", ""))
-
-    if not parsed:
-        continue
-
-    for it in parsed:
-        if not isinstance(it, dict):
+        path = LOGS_DIR / fname
+        if not path.exists():
+            st.warning(f"⚠️ Missing log file: {fname}")
             continue
 
-        sent = it.get("sentence")
-        asp = it.get("aspect")
-
-        if not sent or not asp:
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            st.warning(f"⚠️ Failed to load {fname}: {e}")
             continue
 
-        asp_norm = str(asp).lower().strip()
-        asp_map = ASPECT_MAP.get(asp_norm, asp_norm)
+        parsed = safe_json_load(data.get("output", ""))
 
-        rows.append({
-            "run": fname,
-            "experiment_sets": ", ".join(sorted(file_to_sets.get(fname, []))),
+        if not parsed:
+            continue
 
-            "sentence": sent,
-            "sentence_norm": " ".join(str(sent).split()),
+        for it in parsed:
+            if not isinstance(it, dict):
+                continue
 
-            "aspect_raw": asp,
-            "aspect_norm": asp_norm,
-            "aspect_canonical": asp_map,
+            sent = it.get("sentence")
+            asp = it.get("aspect")
 
-            "category": it.get("aspect_category"),
-            "sentiment": it.get("sentiment"),
-            "tone": it.get("tone"),
-            "confidence": it.get("confidence"),
-        })
+            if not sent or not asp:
+                continue
 
-    progress.progress(i / len(all_log_files))
+            asp_norm = str(asp).lower().strip()
+            asp_map = ASPECT_MAP.get(asp_norm, asp_norm)
+
+            rows.append({
+                "run": fname,
+                "experiment_sets": ", ".join(sorted(file_to_sets.get(fname, []))),
+
+                "sentence": sent,
+                "sentence_norm": " ".join(str(sent).split()),
+
+                "aspect_raw": asp,
+                "aspect_norm": asp_norm,
+                "aspect_canonical": asp_map,
+
+                "category": it.get("aspect_category"),
+                "sentiment": it.get("sentiment"),
+                "tone": it.get("tone"),
+                "confidence": it.get("confidence"),
+            })
+
+        progress.progress(i / len(all_log_files))
 
 if not rows:
-    st.error("No ABSA data recovered from logs.")
+    st.info("ℹ️ No ABSA data available yet.")
     st.stop()
 
 df = pd.DataFrame(rows)
 
 # =====================================================
 # GLOBAL COMBINED ASPECT TABLE
-# =====================================================
-
-# =====================================================
-# GLOBAL COMBINED ASPECT TABLE (WITH CATEGORY)
 # =====================================================
 
 st.subheader("📋 Global Combined Aspect Table")
@@ -494,39 +529,29 @@ for (sent, asp), g in df.groupby(["sentence_norm", "aspect_canonical"]):
 
     cats = g["category"].dropna().astype(str).tolist()
 
-    if cats:
-        majority_cat = pd.Series(cats).mode().iloc[0]
-    else:
-        majority_cat = None
+    majority_cat = pd.Series(cats).mode().iloc[0] if cats else None
 
     combined.append({
         "sentence": sent,
         "canonical_aspect": asp,
 
-        # agreement info
         "runs_count": g["run"].nunique(),
         "runs": ", ".join(sorted(g["run"].unique())),
         "experiment_sets": ", ".join(sorted(
             set(", ".join(g["experiment_sets"]).split(", "))
         )),
 
-        # raw labels
         "raw_aspects": ", ".join(sorted(set(g["aspect_raw"].astype(str)))),
         "aspect_categories": ", ".join(sorted(set(cats))),
         "majority_category": majority_cat,
 
-        # sentiment/tone
         "sentiments": ", ".join(sorted(set(g["sentiment"].astype(str)))),
         "tones": ", ".join(sorted(set(g["tone"].astype(str)))),
 
-        # confidence
         "avg_confidence": pd.to_numeric(g["confidence"], errors="coerce").mean(),
     })
 
 combined_df = pd.DataFrame(combined)
-
-
-
 
 # =====================================================
 # FILTERS
@@ -542,7 +567,7 @@ aspect_filter = st.sidebar.multiselect(
 min_runs = st.sidebar.slider(
     "Minimum agreeing runs",
     1,
-    combined_df["runs_count"].max(),
+    int(combined_df["runs_count"].max()),
     2
 )
 
