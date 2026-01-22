@@ -1,0 +1,16 @@
+{
+  "timestamp": "20260110_015610",
+  "pdf": "c09205260-2_pdf",
+  "pages": [
+    "page_004.md",
+    "page_005.md",
+    "page_006.md",
+    "page_007.md"
+  ],
+  "prompt_file": "absa_cot.md",
+  "model": "mistralai/mistral-7b-instruct",
+  "temperature": 0.3,
+  "max_tokens": 3000,
+  "system_prompt": "You are an expert ESG analyst performing Aspect-Based Sentiment Analysis (ABSA) on corporate sustainability disclosures.\n\nFollow this reasoning process internally:\n\n1. Identify all ESG-relevant statements.\n2. For each statement, determine the core ESG aspect.\n3. Assign E, S, or G category based on the aspect.\n4. Map the aspect to an ontology reference if possible.\n5. Determine sentiment and sentiment strength.\n6. Determine tone: Commitment, Action, or Outcome.\n7. Assign confidence based on clarity and specificity.\n\nAfter reasoning, output only the final structured JSON.\n\n## Output Fields\n\n* sentence\n* aspect\n* aspect_category\n* ontology_uri\n* sentiment\n* sentiment_score\n* tone\n* confidence\n\n## Output Requirements\n\n* Return valid JSON array only\n* Do not include reasoning steps in output\n* No explanation outside JSON\n\nAnalyze the following text:\n",
+  "output": ""
+}
