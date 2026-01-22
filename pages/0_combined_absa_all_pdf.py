@@ -295,11 +295,21 @@ import pandas as pd
 # PATH SETUP
 # =====================================================
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-LOGS_DIR = BASE_DIR / "logs"
-REGISTRY_PATH = LOGS_DIR / "registry.json"
-MAPPING_PATH = BASE_DIR / "data" / "aspect_mapping.json"
+# BASE_DIR = Path(__file__).resolve().parents[1]
+# LOGS_DIR = BASE_DIR / "logs"
+# REGISTRY_PATH = LOGS_DIR / "registry.json"
+# MAPPING_PATH = BASE_DIR / "data" / "aspect_mapping.json"
 
+PROJECT_ROOT = Path.cwd()
+
+LOGS_DIR = PROJECT_ROOT / "logs"
+DATA_DIR = PROJECT_ROOT / "data"
+
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+REGISTRY_PATH = LOGS_DIR / "registry.json"
+MAPPING_PATH = DATA_DIR / "aspect_mapping.json"
 # =====================================================
 # PAGE CONFIG
 # =====================================================
