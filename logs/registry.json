@@ -801,6 +801,31 @@
       "absa_20260115_124257_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
       "absa_20260115_124643_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
       "absa_20260115_125054_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
+    ],
+    "MultiPDF_ABSA_20260206_1647": [
+      "absa_20260206_164943_danamon_2010_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_165038_danamon_2010_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_165243_danamon_2010_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_165341_danamon_2010_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_165550_danamon_2010_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_165625_danamon_2010_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_165835_danamon_2014_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_165947_danamon_2014_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_170157_danamon_2014_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_170306_danamon_2014_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_170607_danamon_2014_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_170714_danamon_2014_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_171027_danamon_2015_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_171220_danamon_2015_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_171312_danamon_2015_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_171523_danamon_2015_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_171608_danamon_2015_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_171908_danamon_2024_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_172002_danamon_2024_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_172300_danamon_2024_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_172400_danamon_2024_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_172614_danamon_2024_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_172707_danamon_2024_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
     ]
   }
 }
