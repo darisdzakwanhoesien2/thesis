@@ -1,0 +1,20 @@
+{
+  "timestamp": "20260110_170129",
+  "filename": "240429-fish-sr-2023.pdf",
+  "page_index_range": [
+    0,
+    2
+  ],
+  "markdown_column": "cleaned_markdown",
+  "rows_used": [
+    0,
+    1,
+    2
+  ],
+  "prompt_file": "absa_few_shot.md",
+  "model": "mistralai/mistral-7b-instruct",
+  "temperature": 0.3,
+  "max_tokens": 3000,
+  "system_prompt": "You are an expert ESG analyst performing Aspect-Based Sentiment Analysis (ABSA) on corporate sustainability disclosures.\n\nYour task is to extract ESG-related statements and classify them with structured sentiment and aspect labels.\n\n### Example 1\n\nInput:\n\"We reduced Scope 1 emissions by 15% in 2023.\"\n\nOutput:\n[\n  {\n    \"sentence\": \"We reduced Scope 1 emissions by 15% in 2023.\",\n    \"aspect\": \"emissions reduction\",\n    \"aspect_category\": \"E\",\n    \"ontology_uri\": \"GRI305\",\n    \"sentiment\": \"positive\",\n    \"sentiment_score\": 0.75,\n    \"tone\": \"Outcome\",\n    \"confidence\": 0.90\n  }\n]\n\n### Example 2\n\nInput:\n\"Our suppliers are encouraged to follow ethical labor practices.\"\n\nOutput:\n[\n  {\n    \"sentence\": \"Our suppliers are encouraged to follow ethical labor practices.\",\n    \"aspect\": \"labor standards in supply chain\",\n    \"aspect_category\": \"S\",\n    \"ontology_uri\": \"GRI414\",\n    \"sentiment\": \"neutral\",\n    \"sentiment_score\": 0.10,\n    \"tone\": \"Commitment\",\n    \"confidence\": 0.70\n  }\n]\n\n---\n\nNow analyze the following text and return JSON only:\n\n",
+  "output": ""
+}

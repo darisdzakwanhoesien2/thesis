@@ -1,0 +1,68 @@
+{
+  "models": [
+    {
+      "id": "mistralai/devstral-2512:free",
+      "label": "Mistral Devstral 25.12 (Free)",
+      "provider": "mistral",
+      "context": 262144,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "tngtech/deepseek-r1t2-chimera:free",
+      "label": "DeepSeek R1T2 Chimera (Free)",
+      "provider": "tngtech",
+      "context": 163840,
+      "tier": "free",
+      "type": "reasoning"
+    },
+    {
+      "id": "qwen/qwen3-coder:free",
+      "label": "Qwen3 Coder (Free)",
+      "provider": "qwen",
+      "context": 262000,
+      "tier": "free",
+      "type": "code"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+      "label": "Nemotron 3 Nano 30B A3B (Free)",
+      "provider": "nvidia",
+      "context": 256000,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "meta-llama/llama-3.3-70b-instruct:free",
+      "label": "LLaMA 3.3 70B Instruct (Free)",
+      "provider": "meta",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "openai/gpt-oss-120b:free",
+      "label": "GPT-OSS 120B (Free)",
+      "provider": "openai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "google/gemini-2.0-flash-exp:free",
+      "label": "Gemini 2.0 Flash Exp (Free)",
+      "provider": "google",
+      "context": 1048576,
+      "tier": "free",
+      "type": "chat"
+    },
+    {
+      "id": "openai/gpt-oss-20b:free",
+      "label": "GPT-OSS 20B (Free)",
+      "provider": "openai",
+      "context": 131072,
+      "tier": "free",
+      "type": "chat"
+    }
+  ]
+}

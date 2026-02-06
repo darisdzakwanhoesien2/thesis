@@ -1,0 +1,161 @@
+page_doc(
+  title="""Main Streamlit Application""",
+  file="""app.py""",
+  purpose="""Serves as the primary entry point for the Streamlit UI, facilitating prompt engineering playground tasks and Mistral OCR processing.""",
+  inputs="""PDF files, user-defined system and user prompts, Mistral and OpenRouter API keys.""",
+  outputs="""Interactive model responses, OCR text extractions, and structured prompt experiment results.""",
+  when_to_use="""Exploration and prompt engineering stages."""
+)
+
+page_doc(
+  title="""ABSA Playground""",
+  file="""pages/0_ABSA_Playground.py""",
+  purpose="""Provide an interactive environment to test and refine Aspect-Based Sentiment Analysis (ABSA) models and prompts.""",
+  inputs="""Text datasets, zero-shot, few-shot, and Chain-of-Thought prompt templates.""",
+  outputs="""Extracted aspects, entities, and sentiment labels for individual text inputs.""",
+  when_to_use="""Modeling and exploration stages."""
+)
+
+page_doc(
+  title="""Combined ABSA Analysis""",
+  file="""pages/0_combined_absa.py""",
+  purpose="""Perform integrated Aspect-Based Sentiment Analysis by combining multiple processing steps or models.""",
+  inputs="""Text datasets or intermediate analysis files.""",
+  outputs="""Consolidated ABSA result tables.""",
+  when_to_use="""Modeling and analysis stages."""
+)
+
+page_doc(
+  title="""Combined ABSA All PDF""",
+  file="""pages/0_combined_absa_all_pdf.py""",
+  purpose="""Execute ABSA analysis across entire collections of PDF documents simultaneously.""",
+  inputs="""Directory of PDF files, extraction models.""",
+  outputs="""Aggregated ABSA metrics across all provided PDF documents.""",
+  when_to_use="""Preprocessing and batch analysis stages."""
+)
+
+page_doc(
+  title="""ABSA Agreement Viewer""",
+  file="""pages/1_absa_agreement_viewer.py""",
+  purpose="""Visualize and compare the agreement between different ABSA results or model outputs.""",
+  inputs="""Multiple sets of ABSA labeling results.""",
+  outputs="""Agreement visualization charts and consistency metrics.""",
+  when_to_use="""Evaluation and validation stages."""
+)
+
+page_doc(
+  title="""ABSA Entity Mapping Analysis""",
+  file="""pages/1_absa_entity_mapping_analysis.py""",
+  purpose="""Analyze and visualize how entities are mapped to specific aspects during the ABSA process.""",
+  inputs="""ABSA output data, entity lists.""",
+  outputs="""Mapping tables and entity-aspect correlation charts.""",
+  when_to_use="""Auditing and validation stages."""
+)
+
+page_doc(
+  title="""Results Viewer""",
+  file="""pages/1_results.py""",
+  purpose="""Display and explore the output data generated from various analysis runs.""",
+  inputs="""Processed datasets, JSON or CSV result files.""",
+  outputs="""Searchable tables and performance summary dashboards.""",
+  when_to_use="""Reporting and evaluation stages."""
+)
+
+page_doc(
+  title="""Bulk Pages Processor""",
+  file="""pages/2_bulk_pages.py""",
+  purpose="""Process large volumes of document pages sequentially for data extraction or analysis.""",
+  inputs="""Multi-page PDF documents or image sets.""",
+  outputs="""Page-wise extracted data and text results.""",
+  when_to_use="""Preprocessing stage."""
+)
+
+page_doc(
+  title="""Bulk Pages Multiple Method""",
+  file="""pages/3_bulk_pages_multiple_method.py""",
+  purpose="""Compare the performance of multiple processing methods or models on bulk page data.""",
+  inputs="""Document pages, multiple API or model configurations.""",
+  outputs="""Side-by-side comparison tables and method performance metrics.""",
+  when_to_use="""Modeling and evaluation stages."""
+)
+
+page_doc(
+  title="""OpenRouter Activity Monitor""",
+  file="""pages/4_openrouter_activity.py""",
+  purpose="""Track, monitor, and audit LLM API activity and associated costs.""",
+  inputs="""API usage logs, token consumption data.""",
+  outputs="""Cost tracking dashboards and token usage alerts.""",
+  when_to_use="""Monitoring and auditing stages."""
+)
+
+page_doc(
+  title="""ABSA Experiment Set Overview""",
+  file="""pages/5_absa_experiment_set_overview.py""",
+  purpose="""Provide a high-level overview of various ABSA experiment groups and their configurations.""",
+  inputs="""Experiment metadata, configuration logs.""",
+  outputs="""Summary table of experiment parameters and high-level results.""",
+  when_to_use="""Evaluation and reporting stages."""
+)
+
+page_doc(
+  title="""Markdown Processor""",
+  file="""pages/5_markdown_processor.py""",
+  purpose="""Format and clean raw text or OCR output into structured Markdown documents.""",
+  inputs="""Raw text, OCR results, regex-based cleanup rules.""",
+  outputs="""Formatted Markdown files ready for LLM consumption.""",
+  when_to_use="""Preprocessing stage."""
+)
+
+page_doc(
+  title="""Bulk OCR""",
+  file="""pages/6_Bulk_OCR.py""",
+  purpose="""Perform batch Optical Character Recognition on multiple files.""",
+  inputs="""Multiple PDF or image files.""",
+  outputs="""ZIP download of text results, progress bar updates.""",
+  when_to_use="""Preprocessing stage."""
+)
+
+page_doc(
+  title="""ABSA Mapping Inspector""",
+  file="""pages/6_absa_mapping_inspector.py""",
+  purpose="""Perform detailed inspection and auditing of how specific entities are mapped in ABSA results.""",
+  inputs="""ABSA result data, mapping definitions.""",
+  outputs="""Inspection tables and detailed error alerts.""",
+  when_to_use="""Auditing and validation stages."""
+)
+
+page_doc(
+  title="""Bulk PDF Multiple Methods""",
+  file="""pages/7_bulk_pdf_multiple_methods.py""",
+  purpose="""Evaluate and compare various PDF extraction and analysis methods across a set of documents.""",
+  inputs="""Collection of PDF files, multiple model/prompt configurations.""",
+  outputs="""Comparative performance charts and side-by-side result datasets.""",
+  when_to_use="""Evaluation and modeling stages."""
+)
+
+page_doc(
+  title="""Data Explorer""",
+  file="""pages/8_data.py""",
+  purpose="""Explore, manage, and export datasets used or produced by the application.""",
+  inputs="""Local CSV/JSONL files, logged playground interactions.""",
+  outputs="""Data tables, summary statistics, and JSONL exports for fine-tuning.""",
+  when_to_use="""Exploration and preprocessing stages."""
+)
+
+page_doc(
+  title="""Framework Mapping Audit""",
+  file="""pages/8_framework_mapping_audit.py""",
+  purpose="""Validate and audit analysis results against specific domain frameworks such as ESG or policy guidelines.""",
+  inputs="""ABSA results, domain-specific framework guidelines.""",
+  outputs="""Audit reports, error labels, and framework alignment scores.""",
+  when_to_use="""Auditing and reporting stages."""
+)
+
+page_doc(
+  title="""Few-shot Editor Module""",
+  file="""ui/fewshot.py""",
+  purpose="""Provide a UI component for entering and managing few-shot examples, including reasoning steps.""",
+  inputs="""User-provided Question/Answer pairs and reasoning/Chain-of-Thought steps.""",
+  outputs="""Structured few-shot message blocks for LLM prompt injection.""",
+  when_to_use="""Modeling and prompt design stages."""
+)

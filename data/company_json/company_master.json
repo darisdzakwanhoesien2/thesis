@@ -1,0 +1,16 @@
+[
+  {"id":1,"ticker":"PGEO","name":"Pertamina Geothermal Energy","full":"PT Pertamina Geothermal Energy Tbk","aliases":["pertamina","pgeo"]},
+  {"id":2,"ticker":"MPMX","name":"Mitra Pinasthika Mustika","full":"PT Mitra Pinasthika Mustika Tbk","aliases":["mpmx","mitra pinasthika"]},
+  {"id":3,"ticker":"JSMR","name":"Jasa Marga","full":"PT Jasa Marga Tbk","aliases":["jasamarga","jasa marga"]},
+  {"id":4,"ticker":"EMTK","name":"Elang Mahkota Teknologi","full":"PT Elang Mahkota Teknologi Tbk","aliases":["scma","elang mahkota","emtk"]},
+  {"id":5,"ticker":"ERAA","name":"Erajaya Swasembada","full":"PT Erajaya Swasembada Tbk","aliases":["erajaya"]},
+  {"id":8,"ticker":"GOTO","name":"GoTo Gojek Tokopedia","full":"PT GoTo Gojek Tokopedia Tbk","aliases":["goto","gojek","tokopedia"]},
+  {"id":12,"ticker":"UNVR","name":"Unilever Indonesia","full":"PT Unilever Indonesia Tbk","aliases":["unilever"]},
+  {"id":14,"ticker":"MTEL","name":"Dayamitra Telekomunikasi","full":"PT Dayamitra Telekomunikasi Tbk","aliases":["mitratel","mtel"]},
+  {"id":39,"ticker":"HMSP","name":"HM Sampoerna","full":"PT HM Sampoerna Tbk","aliases":["hm","sampoerna"]},
+  {"id":72,"ticker":"CPIN","name":"Charoen Pokphand Indonesia","full":"PT Charoen Pokphand Indonesia Tbk","aliases":["charoen","cpin"]},
+  {"id":75,"ticker":"JPFA","name":"JAPFA Comfeed Indonesia","full":"PT JAPFA Comfeed Indonesia Tbk","aliases":["japfa"]},
+  {"id":78,"ticker":"HRUM","name":"Harum Energy","full":"PT Harum Energy Tbk","aliases":["harum","hrum"]},
+  {"id":73,"ticker":"ADRO","name":"Alamtri Resources Indonesia","full":"PT Alamtri Resources Indonesia Tbk","aliases":["adaro","adro"]},
+  {"id":79,"ticker":"BRMS","name":"Bumi Resources Minerals","full":"PT Bumi Resources Minerals Tbk","aliases":["bumi","brms"]}
+]
