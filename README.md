@@ -1,3 +1,5 @@
+logs\pdf_download_log.jsonl
+
 move data from outputs_ocr to outputs and add endswith("_pdf")
 pdf_folders = sorted(
     [p for p in outputs_root.iterdir() if p.is_dir() and p.name.endswith("_pdf")]

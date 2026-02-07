@@ -826,6 +826,32 @@
       "absa_20260206_172400_danamon_2024_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
       "absa_20260206_172614_danamon_2024_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
       "absa_20260206_172707_danamon_2024_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
+    ],
+    "MultiPDF_ABSA_20260206_1934": [
+      "absa_20260206_193743_2020-tesla-impact-report_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_193852_2020-tesla-impact-report_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_194159_2020-tesla-impact-report_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_194258_2020-tesla-impact-report_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_194521_2020-tesla-impact-report_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_194544_2020-tesla-impact-report_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_194841_2021-tesla-impact-report_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_194947_2021-tesla-impact-report_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_195157_2021-tesla-impact-report_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_195302_2021-tesla-impact-report_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_195515_2021-tesla-impact-report_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_195555_2021-tesla-impact-report_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_195836_2023-tesla-impact-report_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_195943_2023-tesla-impact-report_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_200202_2023-tesla-impact-report_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_200259_2023-tesla-impact-report_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_200520_2023-tesla-impact-report_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_200609_2023-tesla-impact-report_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_200930_2024-tesla-impact-report_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_201027_2024-tesla-impact-report_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_201259_2024-tesla-impact-report_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_201357_2024-tesla-impact-report_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+      "absa_20260206_201621_2024-tesla-impact-report_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+      "absa_20260206_201702_2024-tesla-impact-report_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
     ]
   }
 }

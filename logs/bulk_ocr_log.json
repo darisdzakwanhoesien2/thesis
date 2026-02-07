@@ -609,5 +609,81 @@
     "company": "amman_revision",
     "pages": 170,
     "time": "2026-02-06 14:43:53"
+  },
+  "goto/Gojek_s 2020 Sustainability Report.pdf": {
+    "status": "failed",
+    "error": "Upload failed: {\"detail\": \"Invalid file format.\", \"message\": \"Received file with mimetype text/html, only application/pdf, image/.*, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/epub+zip, application/docbook+xml, application/rtf, application/vnd.oasis.opendocument.text, application/x-biblatex, application/x-bibtex, application/x-endnote+xml, application/x-fictionbook+xml, application/x-ipynb+json, application/x-jats+xml, application/x-latex, application/x-opml+xml, text/troff, text/x-dokuwiki are currently supported\"}"
+  },
+  "goto/GoTo_s 2021 Sustainability Report.pdf": {
+    "status": "done",
+    "company": "goto",
+    "pages": 100,
+    "time": "2026-02-06 19:23:31"
+  },
+  "goto/GoTo_s 2022 Sustainability Report.pdf": {
+    "status": "done",
+    "company": "goto",
+    "pages": 174,
+    "time": "2026-02-06 19:24:10"
+  },
+  "goto/GoTo_s 2023 Sustainability Report.pdf": {
+    "status": "done",
+    "company": "goto",
+    "pages": 92,
+    "time": "2026-02-06 19:24:52"
+  },
+  "goto/GoTo_s 2024 Sustainability Report.pdf": {
+    "status": "done",
+    "company": "goto",
+    "pages": 132,
+    "time": "2026-02-06 19:25:39"
+  },
+  "harum_energy/Sustainability Report 2021.pdf": {
+    "status": "done",
+    "company": "harum_energy",
+    "pages": 78,
+    "time": "2026-02-07 08:04:40"
+  },
+  "harum_energy/Sustainability Report 2022.pdf": {
+    "status": "done",
+    "company": "harum_energy",
+    "pages": 103,
+    "time": "2026-02-07 08:05:06"
+  },
+  "harum_energy/Sustainability Report 2023.pdf": {
+    "status": "done",
+    "company": "harum_energy",
+    "pages": 116,
+    "time": "2026-02-07 08:05:31"
+  },
+  "scm/2020.pdf": {
+    "status": "done",
+    "company": "scm",
+    "pages": 58,
+    "time": "2026-02-07 08:06:17"
+  },
+  "scm/2021.pdf": {
+    "status": "done",
+    "company": "scm",
+    "pages": 56,
+    "time": "2026-02-07 08:06:34"
+  },
+  "scm/2022.pdf": {
+    "status": "done",
+    "company": "scm",
+    "pages": 66,
+    "time": "2026-02-07 08:06:56"
+  },
+  "scm/2023.pdf": {
+    "status": "done",
+    "company": "scm",
+    "pages": 97,
+    "time": "2026-02-07 08:07:16"
+  },
+  "scm/2024.pdf": {
+    "status": "done",
+    "company": "scm",
+    "pages": 102,
+    "time": "2026-02-07 08:07:36"
   }
 }
