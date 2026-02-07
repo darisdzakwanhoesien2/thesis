@@ -952,6 +952,47 @@
       "absa_20260207_103903_GoTo_s_2021_Sustainability_Report_absa_indonesia_zero_shot_Qwen3_Coder__Free_.json",
       "absa_20260207_103954_GoTo_s_2021_Sustainability_Report_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
       "absa_20260207_104034_GoTo_s_2021_Sustainability_Report_absa_indonesia_zero_shot_LLaMA_3_3_70B_Instruct__Free_.json"
+    ],
+    "MultiPDF_ABSA_20260207_1121": [
+      "absa_20260207_112429_indofood_report_1_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_112524_indofood_report_1_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_113449_indofood_report_1_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_113542_indofood_report_1_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_114509_indofood_report_1_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_114600_indofood_report_1_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_114908_indofood_report_2_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_115008_indofood_report_2_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_115316_indofood_report_2_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_115417_indofood_report_2_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_115645_indofood_report_2_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_115746_indofood_report_2_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_120035_indofood_report_3_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_120144_indofood_report_3_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_120343_indofood_report_3_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_120431_indofood_report_3_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_120643_indofood_report_3_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_120758_indofood_report_3_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_121134_indofood_report_4_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_121231_indofood_report_4_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_121436_indofood_report_4_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_121538_indofood_report_4_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_121909_indofood_report_4_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_122027_indofood_report_4_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json"
+    ],
+    "MultiPDF_ABSA_20260207_1223": [
+      "absa_20260207_122645_harum_energy_Sustainability_Report_2021_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_122748_harum_energy_Sustainability_Report_2021_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_123008_harum_energy_Sustainability_Report_2021_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_123104_harum_energy_Sustainability_Report_2021_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_123434_harum_energy_Sustainability_Report_2021_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_123542_harum_energy_Sustainability_Report_2021_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_124009_harum_energy_Sustainability_Report_2022_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_124111_harum_energy_Sustainability_Report_2022_absa_indonesia_cot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_124343_harum_energy_Sustainability_Report_2022_absa_indonesia_few_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_124441_harum_energy_Sustainability_Report_2022_absa_indonesia_few_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_124801_harum_energy_Sustainability_Report_2022_absa_indonesia_zero_shot_DeepSeek_R1T2_Chimera__Free_.json",
+      "absa_20260207_124850_harum_energy_Sustainability_Report_2022_absa_indonesia_zero_shot_Nemotron_3_Nano_30B_A3B__Free_.json",
+      "absa_20260207_125147_harum_energy_Sustainability_Report_2023_absa_indonesia_cot_DeepSeek_R1T2_Chimera__Free_.json"
     ]
   }
 }
