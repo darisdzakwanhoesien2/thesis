@@ -762,5 +762,514 @@
         ]
       }
     ]
+  },
+  "UNDEFINED": {
+    "ticker": "UNDEFINED",
+    "name": "Unassigned / To Be Decided",
+    "full": "Unassigned Experiment Sets",
+    "aliases": [],
+    "sets": [
+      {
+        "set_name": "HP Circularity \u2014 Prompt Comparison",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_015125.json",
+          "bulk_absa_20260110_015327.json",
+          "bulk_absa_20260110_015424.json"
+        ]
+      },
+      {
+        "set_name": "HP Circularity \u2014 Model Comparison",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_015759.json",
+          "bulk_absa_20260110_020026.json",
+          "bulk_absa_20260110_020227.json"
+        ]
+      },
+      {
+        "set_name": "c09205260-2_pdf \u2014 Prompt Comparison",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_023230_absa_zero_shot.json",
+          "bulk_absa_20260110_023332_absa_few_shot.json",
+          "bulk_absa_20260110_023441_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "BRI - Sustainability Report 2024_pdf \u2014 Prompt Comparison - page 0-4",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_130355_absa_zero_shot.json",
+          "bulk_absa_20260110_130415_absa_few_shot.json",
+          "bulk_absa_20260110_130504_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "240429-fish-sr-2023.pdf \u2014 cleaned_markdown \u2014 Prompt Comparison",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_171752_absa_zero_shot.json",
+          "bulk_absa_20260110_171835_absa_few_shot.json",
+          "bulk_absa_20260110_171928_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "yearly_report_2023 (1).pdf \u2014 markdown_length",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_172237_absa_zero_shot.json",
+          "bulk_absa_20260110_172239_absa_few_shot.json",
+          "bulk_absa_20260110_172330_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "annual-report-and-sustainability-report-2022.pdf \u2014 markdown_length",
+        "runs": 3,
+        "files": [
+          "bulk_absa_20260110_173044_absa_zero_shot.json",
+          "bulk_absa_20260110_173046_absa_few_shot.json",
+          "bulk_absa_20260110_173142_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "PIK_2_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260110_213015_PIK_2_(Pratama_Abadi_Nusa_Industri,_PANI)_Sustainability_Report_2023_pdf_absa_zero_shot.json",
+          "absa_20260110_213046_PIK_2_(Pratama_Abadi_Nusa_Industri,_PANI)_Sustainability_Report_2023_pdf_absa_cot.json",
+          "absa_20260110_213114_PIK_2_(Pratama_Abadi_Nusa_Industri,_PANI)_Sustainability_Report_2023_pdf_absa_few_shot.json"
+        ]
+      },
+      {
+        "set_name": "gihon_2024",
+        "runs": 3,
+        "files": [
+          "absa_20260111_172412_gihon_json_Annual_and_Sustainability_Report_2024_pdf_absa_zero_shot.json",
+          "absa_20260111_172429_gihon_json_Annual_and_Sustainability_Report_2024_pdf_absa_few_shot.json",
+          "absa_20260111_172451_gihon_json_Annual_and_Sustainability_Report_2024_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "sustainability-report-2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_180502_sustainability-report-2023_pdf_absa_zero_shot.json",
+          "absa_20260111_180546_sustainability-report-2023_pdf_absa_few_shot.json",
+          "absa_20260111_180651_sustainability-report-2023_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "yearly_report_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_180717_yearly_report_2023_pdf_absa_zero_shot.json",
+          "absa_20260111_180746_yearly_report_2023_pdf_absa_few_shot.json",
+          "absa_20260111_180823_yearly_report_2023_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "SR-BNI-2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_183426_SR-BNI-2023-ENG-final_highres_pdf_absa_zero_shot.json",
+          "absa_20260111_183508_SR-BNI-2023-ENG-final_highres_pdf_absa_few_shot.json",
+          "absa_20260111_183540_SR-BNI-2023-ENG-final_highres_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "laporan_tahunan_2022",
+        "runs": 3,
+        "files": [
+          "absa_20260111_183726_laporan-tahunan-dan-laporan-keberlanjutan-2022_pdf_absa_zero_shot.json",
+          "absa_20260111_183752_laporan-tahunan-dan-laporan-keberlanjutan-2022_pdf_absa_few_shot.json",
+          "absa_20260111_183825_laporan-tahunan-dan-laporan-keberlanjutan-2022_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "laporan-keberlanjutan-bei-2024",
+        "runs": 3,
+        "files": [
+          "absa_20260111_183853_laporan-keberlanjutan-bei-2024_publish_pdf_absa_zero_shot.json",
+          "absa_20260111_183920_laporan-keberlanjutan-bei-2024_publish_pdf_absa_few_shot.json",
+          "absa_20260111_183945_laporan-keberlanjutan-bei-2024_publish_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "ULTJ_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_184013_ULTJ_Laporan_Keberlanjutan_SR_2023_FINAL_pdf_absa_zero_shot.json",
+          "absa_20260111_184042_ULTJ_Laporan_Keberlanjutan_SR_2023_FINAL_pdf_absa_few_shot.json",
+          "absa_20260111_184113_ULTJ_Laporan_Keberlanjutan_SR_2023_FINAL_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "tpl_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_184147_TPL-SR-2023-versi-Indo-240430_pdf_absa_zero_shot.json",
+          "absa_20260111_184206_TPL-SR-2023-versi-Indo-240430_pdf_absa_few_shot.json",
+          "absa_20260111_184230_TPL-SR-2023-versi-Indo-240430_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "TAPG_SR_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_184310_TAPG_SR_2023_pdf_absa_zero_shot.json",
+          "absa_20260111_184346_TAPG_SR_2023_pdf_absa_few_shot.json",
+          "absa_20260111_184438_TAPG_SR_2023_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "medres_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260111_184732_Sustainability-Report-Impack-2023-MedRes_pdf_absa_zero_shot.json",
+          "absa_20260111_184854_Sustainability-Report-Impack-2023-MedRes_pdf_absa_few_shot.json",
+          "absa_20260111_185009_Sustainability-Report-Impack-2023-MedRes_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "Indonet-Annual-Report-2022",
+        "runs": 3,
+        "files": [
+          "absa_20260112_161652_Indonet-Annual-Report-2022_pdf_absa_zero_shot.json",
+          "absa_20260112_161724_Indonet-Annual-Report-2022_pdf_absa_few_shot.json",
+          "absa_20260112_161736_Indonet-Annual-Report-2022_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "Intraco_Penta_Tbk_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260112_161826_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot.json",
+          "absa_20260112_161838_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_few_shot.json",
+          "absa_20260112_161857_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "Intiland-Development_2023",
+        "runs": 3,
+        "files": [
+          "absa_20260112_162432_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot.json",
+          "absa_20260112_162507_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_few_shot.json",
+          "absa_20260112_162529_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_cot.json"
+        ]
+      },
+      {
+        "set_name": "Intraco_Penta_Tbk_2023_multiple",
+        "runs": 6,
+        "files": [
+          "absa_20260112_185102_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260112_185153_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260112_185213_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260112_185317_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260112_185442_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260112_185448_PT_Intraco_Penta_Tbk_2023_Integrated_Annual_Report_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json"
+        ]
+      },
+      {
+        "set_name": "Intiland-FY23_multiple",
+        "runs": 5,
+        "files": [
+          "absa_20260112_185559_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260112_185743_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260112_185758_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260112_185854_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260112_190009_Intiland-Development_Sustainability-Report-2023-ID_pdf_absa_zero_shot_Qwen3_Coder_(Free).json"
+        ]
+      },
+      {
+        "set_name": "SCM_2020_multiple",
+        "runs": 16,
+        "files": [
+          "absa_20260113_004708_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_004758_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_005308_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_005330_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_005401_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_005417_SCM_2020_scm-sr-2020-final-1_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260113_005428_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_005518_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_005916_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260113_005944_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_010019_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_010033_SCM_2020_scm-sr-2020-final-1_pdf_absa_cot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260113_010052_SCM_2020_scm-sr-2020-final-1_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_010132_SCM_2020_scm-sr-2020-final-1_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_010420_SCM_2020_scm-sr-2020-final-1_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_010446_SCM_2020_scm-sr-2020-final-1_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
+        ]
+      },
+      {
+        "set_name": "SCM_2021_multiple",
+        "runs": 16,
+        "files": [
+          "absa_20260113_010807_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_010905_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_011222_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_011252_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_011332_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_011343_SCM_2021_sustainability-report-scma-2021_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260113_011426_SCM_2021_sustainability-report-scma-2021_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_011508_SCM_2021_sustainability-report-scma-2021_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_011557_SCM_2021_sustainability-report-scma-2021_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260113_011627_SCM_2021_sustainability-report-scma-2021_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_011710_SCM_2021_sustainability-report-scma-2021_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_011727_SCM_2021_sustainability-report-scma-2021_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_011814_SCM_2021_sustainability-report-scma-2021_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_012008_SCM_2021_sustainability-report-scma-2021_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_012028_SCM_2021_sustainability-report-scma-2021_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_012126_SCM_2021_sustainability-report-scma-2021_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json"
+        ]
+      },
+      {
+        "set_name": "SCM_2022_multiple",
+        "runs": 17,
+        "files": [
+          "absa_20260113_012144_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_012237_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_012459_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_012532_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_012738_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_012753_SCM_2022_sr-scma-2022_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260113_012824_SCM_2022_sr-scma-2022_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_012917_SCM_2022_sr-scma-2022_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_013146_SCM_2022_sr-scma-2022_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260113_013215_SCM_2022_sr-scma-2022_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_013254_SCM_2022_sr-scma-2022_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_013419_SCM_2022_sr-scma-2022_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_013505_SCM_2022_sr-scma-2022_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_013738_SCM_2022_sr-scma-2022_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_013759_SCM_2022_sr-scma-2022_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_013832_SCM_2022_sr-scma-2022_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_013841_SCM_2022_sr-scma-2022_pdf_absa_few_shot_Gemini_2.0_Flash_Exp_(Free).json"
+        ]
+      },
+      {
+        "set_name": "SCM_2023_multiple",
+        "runs": 16,
+        "files": [
+          "absa_20260113_013904_SCM_2023_sr-scma_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_013948_SCM_2023_sr-scma_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_014259_SCM_2023_sr-scma_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_014335_SCM_2023_sr-scma_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_014430_SCM_2023_sr-scma_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_014452_SCM_2023_sr-scma_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_014542_SCM_2023_sr-scma_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_015054_SCM_2023_sr-scma_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260113_015123_SCM_2023_sr-scma_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_015159_SCM_2023_sr-scma_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_015227_SCM_2023_sr-scma_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_015313_SCM_2023_sr-scma_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_015626_SCM_2023_sr-scma_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_015651_SCM_2023_sr-scma_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_015732_SCM_2023_sr-scma_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_015741_SCM_2023_sr-scma_pdf_absa_few_shot_Gemini_2.0_Flash_Exp_(Free).json"
+        ]
+      },
+      {
+        "set_name": "SCM_2024_multiple",
+        "runs": 14,
+        "files": [
+          "absa_20260113_015758_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_020058_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_020123_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_020147_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_020250_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_020336_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_020507_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260113_020538_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_020632_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260113_020657_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260113_020803_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260113_020833_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260113_020855_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260113_020929_SCM_2024_090425-sr24-scma-pdf-final_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json"
+        ]
+      },
+      {
+        "set_name": "MultiPDF_ABSA_20260113_0441",
+        "runs": 0,
+        "files": []
+      },
+      {
+        "set_name": "indofood_indf",
+        "runs": 60,
+        "files": [
+          "absa_20260114_025735_indofood_report_4_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_025814_indofood_report_4_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_025857_indofood_report_4_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_025925_indofood_report_4_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_030004_indofood_report_4_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_030104_indofood_report_4_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_030156_indofood_report_4_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_030254_indofood_report_4_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_030354_indofood_report_4_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_030425_indofood_report_4_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_030435_indofood_report_4_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_030601_indofood_report_4_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_030621_indofood_report_4_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_030656_indofood_report_4_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_030725_indofood_report_4_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_030741_indofood_report_3_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_030840_indofood_report_3_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_030849_indofood_report_3_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_030922_indofood_report_3_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_030950_indofood_report_3_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_031042_indofood_report_3_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_031155_indofood_report_3_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_031215_indofood_report_3_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_031250_indofood_report_3_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_031314_indofood_report_3_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_031319_indofood_report_3_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_031405_indofood_report_3_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_031416_indofood_report_3_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_031438_indofood_report_3_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_031500_indofood_report_3_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_031522_indofood_report_2_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_031618_indofood_report_2_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_031722_indofood_report_2_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_031753_indofood_report_2_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_031827_indofood_report_2_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_031849_indofood_report_2_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_031924_indofood_report_2_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_032154_indofood_report_2_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_032218_indofood_report_2_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_032250_indofood_report_2_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_032304_indofood_report_2_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_032333_indofood_report_2_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_032604_indofood_report_2_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_032625_indofood_report_2_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_032644_indofood_report_2_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_032702_indofood_report_1_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_032748_indofood_report_1_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_033022_indofood_report_1_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_033101_indofood_report_1_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_033138_indofood_report_1_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_033220_indofood_report_1_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_033309_indofood_report_1_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_033551_indofood_report_1_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_033623_indofood_report_1_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_033642_indofood_report_1_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_033719_indofood_report_1_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_033756_indofood_report_1_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_033822_indofood_report_1_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_033840_indofood_report_1_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_033905_indofood_report_1_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json"
+        ]
+      },
+      {
+        "set_name": "MultiPDF_ABSA_20260114_1129",
+        "runs": 9,
+        "files": [
+          "absa_20260114_113003_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113111_Sustainability_Reports_MAP_2021_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113142_Sustainability_Reports_MAP_2021_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113259_Sustainability_Reports_MAP_2023_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113428_Sustainability_Reports_MAP_2023_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113448_Sustainability_Reports_MAP_2023_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113531_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113543_Sustainability_Reports_MAP_2022_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260114_113624_Sustainability_Reports_MAP_2022_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json"
+        ]
+      },
+      {
+        "set_name": "MultiPDF_ABSA_20260114_1136",
+        "runs": 39,
+        "files": [
+          "absa_20260114_113753_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_113931_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_114001_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_114040_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_114052_Sustainability_Reports_MAP_2021_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260114_120015_Sustainability_Reports_MAP_2021_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_120249_Sustainability_Reports_MAP_2021_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_120318_Sustainability_Reports_MAP_2021_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_120415_Sustainability_Reports_MAP_2021_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_120721_Sustainability_Reports_MAP_2021_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_120932_Sustainability_Reports_MAP_2021_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_120959_Sustainability_Reports_MAP_2021_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_121039_Sustainability_Reports_MAP_2021_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_121048_Sustainability_Reports_MAP_2021_pdf_absa_cot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260114_121226_Sustainability_Reports_MAP_2023_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_121426_Sustainability_Reports_MAP_2023_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_121455_Sustainability_Reports_MAP_2023_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_121531_Sustainability_Reports_MAP_2023_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_121623_Sustainability_Reports_MAP_2023_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_121954_Sustainability_Reports_MAP_2023_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_122018_Sustainability_Reports_MAP_2023_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_122045_Sustainability_Reports_MAP_2023_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_122149_Sustainability_Reports_MAP_2023_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_122317_Sustainability_Reports_MAP_2023_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_122345_Sustainability_Reports_MAP_2023_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_122419_Sustainability_Reports_MAP_2023_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_122500_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_122715_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_122748_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_122833_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_122847_Sustainability_Reports_MAP_2022_pdf_absa_zero_shot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260114_122924_Sustainability_Reports_MAP_2022_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_123004_Sustainability_Reports_MAP_2022_pdf_absa_few_shot_Qwen3_Coder_(Free).json",
+          "absa_20260114_123022_Sustainability_Reports_MAP_2022_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_123056_Sustainability_Reports_MAP_2022_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260114_123150_Sustainability_Reports_MAP_2022_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260114_123359_Sustainability_Reports_MAP_2022_pdf_absa_cot_Qwen3_Coder_(Free).json",
+          "absa_20260114_123432_Sustainability_Reports_MAP_2022_pdf_absa_cot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260114_123501_Sustainability_Reports_MAP_2022_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json"
+        ]
+      },
+      {
+        "set_name": "MultiPDF_ABSA_20260115_1111",
+        "runs": 12,
+        "files": [
+          "absa_20260115_111208_pertamina_geothermal_Laporan_Keberlanjutan_2020_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_111305_pertamina_geothermal_Laporan_Keberlanjutan_2020_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_111343_pertamina_geothermal_Laporan_Keberlanjutan_2020_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_111427_pertamina_geothermal_Laporan_Keberlanjutan_2020_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_111448_pertamina_geothermal_Laporan_Keberlanjutan_2018_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_111523_pertamina_geothermal_Laporan_Keberlanjutan_2018_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_111603_pertamina_geothermal_Laporan_Keberlanjutan_2018_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_111631_pertamina_geothermal_Laporan_Keberlanjutan_2018_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_111648_pertamina_geothermal_Laporan_Keberlanjutan_2017_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_111728_pertamina_geothermal_Laporan_Keberlanjutan_2017_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_111801_pertamina_geothermal_Laporan_Keberlanjutan_2017_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_111914_pertamina_geothermal_Laporan_Keberlanjutan_2017_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json"
+        ]
+      },
+      {
+        "set_name": "MultiPDF_ABSA_20260115_1155",
+        "runs": 25,
+        "files": [
+          "absa_20260115_115603_mandiri_Sustainability_Report_2024_pdf_absa_zero_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_115918_mandiri_Sustainability_Report_2024_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_120221_mandiri_Sustainability_Report_2024_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_120323_mandiri_Sustainability_Report_2024_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_120733_mandiri_Sustainability_Report_2024_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_121004_mandiri_Sustainability_Report_2024_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_121046_mandiri_Sustainability_Report_2024_pdf_absa_few_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_121218_mandiri_Sustainability_Report_2024_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_121311_mandiri_Sustainability_Report_2024_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_121704_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_121811_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_122155_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_122752_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_122841_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_cot_Gemini_2.0_Flash_Exp_(Free).json",
+          "absa_20260115_122936_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_123039_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_123205_mandiri_Laporan_Keberlanjutan_2023_pdf_absa_few_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_123646_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_zero_shot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_123723_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_zero_shot_Nemotron_3_Nano_30B_A3B_(Free).json",
+          "absa_20260115_123828_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_zero_shot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_123844_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_cot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_123943_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_cot_DeepSeek_R1T2_Chimera_(Free).json",
+          "absa_20260115_124257_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_cot_LLaMA_3.3_70B_Instruct_(Free).json",
+          "absa_20260115_124643_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_few_shot_Mistral_Devstral_25.12_(Free).json",
+          "absa_20260115_125054_mandiri_Laporan_Keberlanjutan_2022_pdf_absa_few_shot_Nemotron_3_Nano_30B_A3B_(Free).json"
+        ]
+      }
+    ]
   }
 }
