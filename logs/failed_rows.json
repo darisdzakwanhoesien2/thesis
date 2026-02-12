@@ -1,0 +1,572 @@
+[
+    {
+        "line_number": 2,
+        "raw_data": [
+            "Providing the best service for customer satisfaction",
+            "corporate core values - customer focus",
+            "s",
+            "e",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 7",
+        "timestamp": "2026-02-12 16:33:57.007911"
+    },
+    {
+        "line_number": 3,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008142"
+    },
+    {
+        "line_number": 4,
+        "raw_data": [
+            "We engaged in initiatives focused on increasing support for clean energy and combating climate change",
+            " including the Responsible Business Alliance",
+            " Clean Energy Buyers Association",
+            " RE100",
+            " EV100",
+            " Carbon Disclosure Project's Supply Chain membership",
+            " Business Ambition for 1.5\u00b0C",
+            " and Center for Climate and Energy Solutions' Business Environmental Leadership Council.",
+            "clean energy and climate change",
+            "e",
+            "s",
+            "g",
+            "e-s-g",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 15",
+        "timestamp": "2026-02-12 16:33:57.008148"
+    },
+    {
+        "line_number": 5,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008149"
+    },
+    {
+        "line_number": 6,
+        "raw_data": [
+            "Readers are advised to exercise caution and not rely solely on these statements for decision-making purposes.",
+            "risk management",
+            "e",
+            "",
+            "negative",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:33:57.008152"
+    },
+    {
+        "line_number": 7,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008155"
+    },
+    {
+        "line_number": 8,
+        "raw_data": [
+            "Sejalan dengan tekad tersebut",
+            " Perseroan juga memadukan strategi pengembangan kawasan PIK 2 dengan mengedepankan prinsip keberlanjutan dan mendukung pencapaian Tujuan Pembangunan Berkelanjutan (TPB).",
+            "sustainable development integration",
+            "s",
+            "g",
+            "e-s-g",
+            "neutral",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 10",
+        "timestamp": "2026-02-12 16:33:57.008158"
+    },
+    {
+        "line_number": 9,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008160"
+    },
+    {
+        "line_number": 10,
+        "raw_data": [
+            "We see that they do believe they can make changes by understanding the environmental",
+            " social and economic impact of their operations.",
+            "employee awareness",
+            "s",
+            "g",
+            "",
+            "positive",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 10",
+        "timestamp": "2026-02-12 16:33:57.008162"
+    },
+    {
+        "line_number": 11,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008164"
+    },
+    {
+        "line_number": 12,
+        "raw_data": [
+            "We achieved over 66% renewable energy usage across our operations.",
+            "renewable energy adoption",
+            "e",
+            "s",
+            "",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 7",
+        "timestamp": "2026-02-12 16:33:57.008166"
+    },
+    {
+        "line_number": 13,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008168"
+    },
+    {
+        "line_number": 14,
+        "raw_data": [
+            "As of 2024",
+            " Tesla drivers using Autopilot technology (with active driver supervision) achieved a safety record nearly 10-times higher than the U.S. national average.",
+            "autonomous safety features",
+            "e",
+            "",
+            "neutral",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:33:57.008171"
+    },
+    {
+        "line_number": 15,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008172"
+    },
+    {
+        "line_number": 16,
+        "raw_data": [
+            "Danamon berkomitmen untuk peka terhadap keinginan dan kebutuhan jutaan orang",
+            " baik itu nasabah maupun seluruh karyawan Danamon.",
+            "community engagement",
+            "s",
+            "g",
+            "",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:33:57.008175"
+    },
+    {
+        "line_number": 17,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008177"
+    },
+    {
+        "line_number": 18,
+        "raw_data": [
+            "Pada tahun 2022",
+            " tujuan ini mendorong GoTo melakukan inisiatif baru menuju Komitmen Tiga Nol pada tahun 2030. (optimizing route technology to reduce emissions",
+            " transitioning offices to renewable energy",
+            " generating value from ecosystem waste",
+            " and designing innovative financial products for ride-hailing partners)",
+            "komitmen esg holistik",
+            "e",
+            "s",
+            "g",
+            "e-s-g",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 12",
+        "timestamp": "2026-02-12 16:33:57.008181"
+    },
+    {
+        "line_number": 19,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008183"
+    },
+    {
+        "line_number": 20,
+        "raw_data": [
+            "Perseroan juga mendorong penerapan prinsip-prinsip ESG (Environment",
+            " Social",
+            " and Governance) sehingga dapat membangun keunggulan kompetitif.",
+            "esg implementation",
+            "e",
+            "s",
+            "g",
+            "",
+            "positive",
+            "action"
+        ],
+        "reason": "Expected 6 columns, got 10",
+        "timestamp": "2026-02-12 16:33:57.008185"
+    },
+    {
+        "line_number": 21,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008187"
+    },
+    {
+        "line_number": 22,
+        "raw_data": [
+            "Belajar tanpa batas. Terus belajar untuk mengeksplorasi diri.",
+            "employee development",
+            "s",
+            "",
+            "neutral",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:33:57.008189"
+    },
+    {
+        "line_number": 23,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008191"
+    },
+    {
+        "line_number": 24,
+        "raw_data": [
+            "Our ESG Sustainability Council regularly presents this information to Tesla's Board of Directors for review.",
+            "governance structure",
+            "e",
+            "g",
+            "",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 7",
+        "timestamp": "2026-02-12 16:33:57.008193"
+    },
+    {
+        "line_number": 25,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008195"
+    },
+    {
+        "line_number": 26,
+        "raw_data": [
+            "5",
+            "000 clean energy-related jobs globally.",
+            "employment generation",
+            "e",
+            "s",
+            "",
+            "positive",
+            "outcome"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:33:57.008197"
+    },
+    {
+        "line_number": 27,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008198"
+    },
+    {
+        "line_number": 28,
+        "raw_data": [
+            "Prohibiting the employment of underage children and refraining from forced labor and modern slavery.",
+            "child labor",
+            "s",
+            "",
+            "negative",
+            "",
+            "",
+            ""
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:33:57.008201"
+    },
+    {
+        "line_number": 29,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008202"
+    },
+    {
+        "line_number": 30,
+        "raw_data": [
+            "We have made significant strides in integrating sustainability practices across all our Strategic Business Groups",
+            " with a notable milestone this year being the enhancement of our ESG targets.",
+            "sustainability integration",
+            "e",
+            "s",
+            "g",
+            "e-s-g",
+            "positive",
+            "commitment"
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:33:57.008205"
+    },
+    {
+        "line_number": 31,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:33:57.008206"
+    },
+    {
+        "line_number": 32,
+        "raw_data": [
+            "Pendekatan keberlanjutan terkait aspek lingkungan dilakukan dengan meningkatkan kontribusinya pada penurunan emisi gas rumah kaca (Green House Gas/GHG).",
+            "pengurangan emisi",
+            "e",
+            "",
+            "positive",
+            "outcome"
+        ],
+        "reason": "invalid literal for int() with base 10: 'outcome'",
+        "timestamp": "2026-02-12 16:33:57.008215"
+    },
+    {
+        "line_number": 2,
+        "raw_data": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "reason": "invalid literal for int() with base 10: ''",
+        "timestamp": "2026-02-12 16:34:32.505237"
+    },
+    {
+        "line_number": 3,
+        "raw_data": [
+            "We engaged in initiatives focused on increasing support for clean energy and combating climate change",
+            " including the Responsible Business Alliance",
+            " Clean Energy Buyers Association",
+            " RE100",
+            " EV100",
+            " Carbon Disclosure Project's Supply Chain membership",
+            " Business Ambition for 1.5\u00b0C",
+            " and Center for Climate and Energy Solutions' Business Environmental Leadership Council.",
+            "clean energy and climate change",
+            "s",
+            "e",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 14",
+        "timestamp": "2026-02-12 16:34:32.505251"
+    },
+    {
+        "line_number": 4,
+        "raw_data": [
+            "Readers are advised to exercise caution and not rely solely on these statements for decision-making purposes.",
+            "risk management",
+            "e",
+            "",
+            "neutral",
+            "",
+            "action",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505254"
+    },
+    {
+        "line_number": 5,
+        "raw_data": [
+            "Sejalan dengan tekad tersebut",
+            " Perseroan juga memadukan strategi pengembangan kawasan PIK 2 dengan mengedepankan prinsip keberlanjutan dan mendukung pencapaian Tujuan Pembangunan Berkelanjutan (TPB).",
+            "sustainable development integration",
+            "s",
+            "g",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505258"
+    },
+    {
+        "line_number": 6,
+        "raw_data": [
+            "We see that they do believe they can make changes by understanding the environmental",
+            " social and economic impact of their operations.",
+            "employee awareness",
+            "e-s",
+            "",
+            "neutral",
+            "",
+            "outcome",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:34:32.505261"
+    },
+    {
+        "line_number": 7,
+        "raw_data": [
+            "We achieved over 66% renewable energy usage across our operations.",
+            "renewable energy adoption",
+            "e",
+            "",
+            "positive",
+            "action",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 7",
+        "timestamp": "2026-02-12 16:34:32.505264"
+    },
+    {
+        "line_number": 8,
+        "raw_data": [
+            "As of 2024",
+            " Tesla drivers using Autopilot technology (with active driver supervision) achieved a safety record nearly 10-times higher than the U.S. national average.",
+            "autonomous safety features",
+            "e",
+            "",
+            "neutral",
+            "",
+            "outcome",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:34:32.505277"
+    },
+    {
+        "line_number": 9,
+        "raw_data": [
+            "Danamon berkomitmen untuk peka terhadap keinginan dan kebutuhan jutaan orang",
+            " baik itu nasabah maupun seluruh karyawan Danamon.",
+            "community engagement",
+            "s",
+            "",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505280"
+    },
+    {
+        "line_number": 10,
+        "raw_data": [
+            "Pada tahun 2022",
+            " tujuan inilah yang mendorong GoTo melakukan inisiatif baru menuju Komitmen Tiga Nol pada tahun 2030. Baik itu mengoptimalkan teknologi pengaturan rute untuk meminimalkan emisi",
+            " mentransformasi kantor kami sepenuhnya ke energi terbarukan",
+            " menemukan cara baru untuk menghasilkan nilai dari limbah ekosistem kami",
+            " sampai merancang produk keuangan inovatif untuk melayani kebutuhan mitra pengemudi kami.",
+            "komitmen_ESG_holistik",
+            "e-s-g",
+            "",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 11",
+        "timestamp": "2026-02-12 16:34:32.505284"
+    },
+    {
+        "line_number": 11,
+        "raw_data": [
+            "Perseroan juga mendorong penerapan prinsip-prinsip ESG (Environment",
+            " Social",
+            " and Governance) sehingga dapat membangun keunggulan kompetitif yang akan mendukung pencapaian pertumbuhan bisnis yang berkualitas.",
+            "esg implementation",
+            "e-s-g",
+            "",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:34:32.505288"
+    },
+    {
+        "line_number": 12,
+        "raw_data": [
+            "Belajar tanpa batas. Terus belajar untuk mengeksplorasi diri.",
+            "employee development",
+            "s",
+            "",
+            "neutral",
+            "",
+            "outcome",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505290"
+    },
+    {
+        "line_number": 13,
+        "raw_data": [
+            "Our ESG Sustainability Council... regularly presents this information to Tesla's Board of Directors for review.",
+            "governance structure",
+            "e",
+            "g",
+            "",
+            "neutral",
+            "",
+            "action",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 9",
+        "timestamp": "2026-02-12 16:34:32.505293"
+    },
+    {
+        "line_number": 14,
+        "raw_data": [],
+        "reason": "Expected 6 columns, got 0",
+        "timestamp": "2026-02-12 16:34:32.505295"
+    },
+    {
+        "line_number": 15,
+        "raw_data": [
+            "Bank Mandiri juga terlibat dalam perdagangan karbon dan merupakan bank pertama di Indonesia yang telah meluncurkan digital carbon tracking",
+            " dengan target NZE secara operasional di tahun 2030.",
+            "perdagangan karbon dan digital carbon tracking",
+            "e",
+            "",
+            "positive",
+            "commitment",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505298"
+    },
+    {
+        "line_number": 16,
+        "raw_data": [
+            "Tecprotec Launched \"Ponsel Proteksi\" for Erafone",
+            "consumer protection",
+            "s",
+            "",
+            "neutral",
+            "",
+            "outcome",
+            "1"
+        ],
+        "reason": "Expected 6 columns, got 8",
+        "timestamp": "2026-02-12 16:34:32.505301"
+    }
+]

@@ -4,6 +4,8 @@ pdf_folders = sorted(
 )
 pages/7_bulk_pdf_multiple_methods.py
 
+https://chatgpt.com/c/698d9b01-a8a0-8321-a031-f02ad24a17b9
+
 https://chatgpt.com/c/6962a029-1b30-8327-bf39-3d04345f4207
 
 https://chatgpt.com/c/6963c969-2f58-8328-9878-3deca7c7b313
