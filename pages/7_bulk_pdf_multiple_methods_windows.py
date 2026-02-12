@@ -25,7 +25,7 @@ DATA_DIR = BASE_DIR / "data"
 MODELS_PATH = DATA_DIR / "models.json"
 
 PROMPT_DIR = BASE_DIR / "prompts"
-OUTPUTS_ROOT = BASE_DIR / "outputs"
+OUTPUTS_ROOT = BASE_DIR / "outputs_ocr/manual_batch" # "outputs"
 
 # =====================================================
 # PAGE CONFIG
