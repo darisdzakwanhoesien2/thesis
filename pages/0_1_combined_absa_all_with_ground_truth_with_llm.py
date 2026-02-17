@@ -441,22 +441,27 @@ with st.expander("Download Evaluation Results"):
     )
 
 # =====================================================
-# 🤖 ULTRA SAFE MULTI-EXECUTION LLM ENGINE
+# 🤖 ITERATION-MANAGED LLM ENGINE (FINAL NON-STOP VERSION)
 # =====================================================
 
 import requests
 import time
+import os
+import json
 from datetime import datetime
 
 st.markdown("---")
-st.header("🤖 Multi-Execution LLM Processing (Ultra Safe Mode)")
+st.header("🤖 Managed LLM Iteration Engine")
 
 LM_URL = "http://localhost:1234/v1/chat/completions"
-LM_MODEL = "mistralai/ministral-3-3b"   # change if needed
+LM_MODEL = "mistralai/ministral-3-3b"
 
-RESULT_JSON_PATH = LOGS_DIR / "llm_unmatched_results.json"
-RESULT_CSV_PATH = LOGS_DIR / "llm_unmatched_results.csv"
+RUNS_DIR = LOGS_DIR / "llm_runs"
+MASTER_PATH = LOGS_DIR / "llm_master_results.json"
+REGISTRY_PATH = LOGS_DIR / "llm_run_registry.json"
 DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
+
+RUNS_DIR.mkdir(exist_ok=True)
 
 # -----------------------------------------------------
 # Combine FP + FN
@@ -474,19 +479,19 @@ review_df["id"] = review_df.apply(
 )
 
 # -----------------------------------------------------
-# Load Stored Results
+# Load Master Store
 # -----------------------------------------------------
 
-if RESULT_JSON_PATH.exists():
-    with open(RESULT_JSON_PATH, "r", encoding="utf-8") as f:
-        stored_results = json.load(f)
+if MASTER_PATH.exists():
+    with open(MASTER_PATH, "r", encoding="utf-8") as f:
+        master_results = json.load(f)
 else:
-    stored_results = []
+    master_results = []
 
-if not isinstance(stored_results, list):
-    stored_results = []
+if not isinstance(master_results, list):
+    master_results = []
 
-processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+processed_ids = {item.get("id") for item in master_results if isinstance(item, dict)}
 remaining_df = review_df[~review_df["id"].isin(processed_ids)]
 
 # -----------------------------------------------------
@@ -500,69 +505,84 @@ c2.metric("Remaining", len(remaining_df))
 rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
 num_executions = st.number_input("Number of executions", 1, 100, 1)
 
+total_requested = rows_per_execution * num_executions
+st.info(f"Total rows requested: {total_requested}")
+
 # -----------------------------------------------------
-# Prompt Builder (Marker Enforced)
+# Prompt Builder
 # -----------------------------------------------------
 
 def build_batch_prompt(batch_records):
 
     items_text = ""
 
-    for item in batch_records:
+    for i, item in enumerate(batch_records):
         items_text += f"""
-ID: {item['id']}
+INDEX: {i}
 Sentence: "{item['sentence_norm']}"
 Aspect: "{item['canonical_aspect']}"
 """
 
     return f"""
-You MUST return ONLY valid JSON list.
-Do NOT explain.
-Do NOT add markdown.
-Do NOT add text before or after.
+Return ONLY JSON list.
 
-Wrap the JSON with markers:
+Each item must contain:
 
-START_JSON
-<JSON HERE>
-END_JSON
+- index
+- aspect_categories
+- sentiment
+- tones
+- confidence
+- reasoning
 
-Format example:
+Example:
 
-START_JSON
 [
   {{
-    "id": "...",
-    "aspect_categories": "...",
-    "sentiment": "...",
-    "tones": "...",
+    "index": 0,
+    "aspect_categories": "social",
+    "sentiment": "positive",
+    "tones": "commitment",
     "confidence": 0.95,
     "reasoning": "..."
   }}
 ]
-END_JSON
 
-Now process:
-
+Items:
 {items_text}
 """
 
 # -----------------------------------------------------
-# Safe JSON Extractor (Marker Based)
+# Robust JSON Extractor
 # -----------------------------------------------------
 
-def extract_json_with_markers(text):
+def safe_json_extract(text):
 
     try:
-        start = text.index("START_JSON") + len("START_JSON")
-        end = text.index("END_JSON")
-        json_block = text[start:end].strip()
-        return json.loads(json_block), None
-    except Exception as e:
-        return None, str(e)
+        parsed = json.loads(text)
+    except:
+        try:
+            start = text.index("[")
+            end = text.rindex("]") + 1
+            parsed = json.loads(text[start:end])
+        except:
+            try:
+                start = text.index("{")
+                end = text.rindex("}") + 1
+                parsed = json.loads(text[start:end])
+            except:
+                return None
+
+    if isinstance(parsed, dict):
+        parsed = [parsed]
+
+    if not isinstance(parsed, list):
+        return None
+
+    return parsed
 
 # -----------------------------------------------------
-# Call LMStudio
+# LM Call
 # -----------------------------------------------------
 
 def call_lmstudio(prompt):
@@ -589,81 +609,870 @@ def call_lmstudio(prompt):
         return f"REQUEST_ERROR: {str(e)}"
 
 # -----------------------------------------------------
-# Execution Engine
+# Execution Engine (Non-Stopping)
 # -----------------------------------------------------
 
-if st.button("🚀 Run Processing"):
+if st.button("🚀 Run Managed Processing"):
 
+    run_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_id = f"run_{run_timestamp}"
+
+    run_results = []
     execution_counter = 0
     total_processed = 0
-    progress = st.progress(0)
+
+    execution_status = st.empty()
+    row_status = st.empty()
+    progress_bar = st.progress(0)
 
     for exec_i in range(num_executions):
 
-        processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+        processed_ids = {item.get("id") for item in master_results}
         remaining_df = review_df[~review_df["id"].isin(processed_ids)]
 
         if remaining_df.empty:
+            execution_status.warning("No more remaining rows.")
             break
+
+        execution_status.info(f"Execution {exec_i + 1} / {num_executions}")
 
         batch_df = remaining_df.head(rows_per_execution)
         batch_records = batch_df.to_dict("records")
 
         prompt = build_batch_prompt(batch_records)
-
         raw_response = call_lmstudio(prompt)
 
-        parsed_json, parse_error = extract_json_with_markers(raw_response)
+        parsed_json = safe_json_extract(raw_response)
 
-        # Save debug
+        # Always save debug
         debug_log = {
-            "timestamp": str(datetime.now()),
+            "run_id": run_id,
             "execution": exec_i + 1,
-            "raw_response": raw_response,
-            "parse_error": parse_error
+            "raw_response": raw_response
         }
 
         with open(DEBUG_PATH, "w", encoding="utf-8") as f:
-            json.dump(debug_log, f, indent=2, ensure_ascii=False)
+            json.dump(debug_log, f, indent=2)
 
         if parsed_json is None:
-            st.error(f"❌ Execution {exec_i+1} failed: {parse_error}")
-            st.write("Raw response:")
-            st.code(raw_response)
-            break
-
-        if not isinstance(parsed_json, list):
-            st.error("Returned JSON is not a list.")
-            break
+            execution_status.error(
+                f"Execution {exec_i + 1} JSON parsing failed — skipping."
+            )
+            progress_bar.progress((exec_i + 1) / num_executions)
+            execution_counter += 1
+            continue   # 🔥 continue instead of break
 
         for item in parsed_json:
 
-            if not isinstance(item, dict):
+            idx = item.get("index")
+
+            if idx is None or idx >= len(batch_records):
                 continue
 
-            original = next(
-                (x for x in batch_records if x["id"] == item.get("id")),
-                None
-            )
+            original = batch_records[idx]
 
-            if original:
-                item["sentence_norm"] = original["sentence_norm"]
-                item["canonical_aspect"] = original["canonical_aspect"]
-                stored_results.append(item)
-                total_processed += 1
+            result = {
+                "run_id": run_id,
+                "id": original["id"],
+                "sentence_norm": original["sentence_norm"],
+                "canonical_aspect": original["canonical_aspect"],
+                "aspect_categories": item.get("aspect_categories"),
+                "sentiment": item.get("sentiment"),
+                "tones": item.get("tones"),
+                "confidence": item.get("confidence"),
+                "reasoning": item.get("reasoning")
+            }
+
+            run_results.append(result)
+            master_results.append(result)
+
+            total_processed += 1
+            row_status.write(f"Rows processed: {total_processed}")
 
         execution_counter += 1
-        progress.progress((exec_i + 1) / num_executions)
-        time.sleep(0.3)
 
-    # Save persistent
-    with open(RESULT_JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(stored_results, f, indent=2, ensure_ascii=False)
+        progress_ratio = min(total_processed / total_requested, 1.0)
+        progress_bar.progress(progress_ratio)
 
-    pd.DataFrame(stored_results).to_csv(RESULT_CSV_PATH, index=False)
+        time.sleep(0.2)
 
-    st.success(f"✅ Completed {execution_counter} executions.")
-    st.success(f"Total rows processed this run: {total_processed}")
+    # -------------------------------------------------
+    # Save Files
+    # -------------------------------------------------
+
+    run_path = RUNS_DIR / f"{run_id}.json"
+    with open(run_path, "w", encoding="utf-8") as f:
+        json.dump(run_results, f, indent=2)
+
+    with open(MASTER_PATH, "w", encoding="utf-8") as f:
+        json.dump(master_results, f, indent=2)
+
+    registry_entry = {
+        "run_id": run_id,
+        "timestamp": str(datetime.now()),
+        "executions_completed": execution_counter,
+        "rows_processed": total_processed
+    }
+
+    if REGISTRY_PATH.exists():
+        with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
+            registry_data = json.load(f)
+    else:
+        registry_data = []
+
+    registry_data.append(registry_entry)
+
+    with open(REGISTRY_PATH, "w", encoding="utf-8") as f:
+        json.dump(registry_data, f, indent=2)
+
+    execution_status.success("Processing complete.")
+    progress_bar.progress(1.0)
+
+    st.success(f"Run ID: {run_id}")
+    st.write(f"Executions attempted: {execution_counter}")
+    st.write(f"Total rows processed: {total_processed}")
+
+
+# # =====================================================
+# # 🤖 ITERATION-MANAGED LLM ENGINE (FULL STABLE VERSION)
+# # =====================================================
+
+# import requests
+# import time
+# import os
+# import json
+# from datetime import datetime
+
+# st.markdown("---")
+# st.header("🤖 Managed LLM Iteration Engine")
+
+# LM_URL = "http://localhost:1234/v1/chat/completions"
+# LM_MODEL = "mistralai/ministral-3-3b"   # change if needed
+
+# RUNS_DIR = LOGS_DIR / "llm_runs"
+# MASTER_PATH = LOGS_DIR / "llm_master_results.json"
+# REGISTRY_PATH = LOGS_DIR / "llm_run_registry.json"
+# DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
+
+# RUNS_DIR.mkdir(exist_ok=True)
+
+# # -----------------------------------------------------
+# # Combine FP + FN
+# # -----------------------------------------------------
+
+# review_df = pd.concat([fp_df, fn_df], ignore_index=True)
+
+# if review_df.empty:
+#     st.success("No unmatched pairs 🎉")
+#     st.stop()
+
+# review_df["id"] = review_df.apply(
+#     lambda x: f"{x['sentence_norm']}||{x['canonical_aspect']}",
+#     axis=1
+# )
+
+# # -----------------------------------------------------
+# # Load Master Store
+# # -----------------------------------------------------
+
+# if MASTER_PATH.exists():
+#     with open(MASTER_PATH, "r", encoding="utf-8") as f:
+#         master_results = json.load(f)
+# else:
+#     master_results = []
+
+# if not isinstance(master_results, list):
+#     master_results = []
+
+# processed_ids = {item.get("id") for item in master_results if isinstance(item, dict)}
+# remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+# # -----------------------------------------------------
+# # Dashboard Overview
+# # -----------------------------------------------------
+
+# c1, c2 = st.columns(2)
+# c1.metric("Total Unmatched", len(review_df))
+# c2.metric("Remaining", len(remaining_df))
+
+# rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
+# num_executions = st.number_input("Number of executions", 1, 100, 1)
+
+# total_requested = rows_per_execution * num_executions
+# st.info(f"Total rows requested: {total_requested}")
+
+# # -----------------------------------------------------
+# # Prompt Builder
+# # -----------------------------------------------------
+
+# def build_batch_prompt(batch_records):
+
+#     items_text = ""
+
+#     for i, item in enumerate(batch_records):
+#         items_text += f"""
+# INDEX: {i}
+# Sentence: "{item['sentence_norm']}"
+# Aspect: "{item['canonical_aspect']}"
+# """
+
+#     return f"""
+# Return ONLY JSON list.
+
+# Each item must contain:
+
+# - index
+# - aspect_categories
+# - sentiment
+# - tones
+# - confidence
+# - reasoning
+
+# Example:
+
+# [
+#   {{
+#     "index": 0,
+#     "aspect_categories": "social",
+#     "sentiment": "positive",
+#     "tones": "commitment",
+#     "confidence": 0.95,
+#     "reasoning": "..."
+#   }}
+# ]
+
+# Items:
+# {items_text}
+# """
+
+# # -----------------------------------------------------
+# # Safe JSON Extract
+# # -----------------------------------------------------
+
+# def safe_json_extract(text):
+
+#     try:
+#         return json.loads(text)
+#     except:
+#         try:
+#             start = text.index("[")
+#             end = text.rindex("]") + 1
+#             return json.loads(text[start:end])
+#         except:
+#             return None
+
+# # -----------------------------------------------------
+# # LM Call
+# # -----------------------------------------------------
+
+# def call_lmstudio(prompt):
+
+#     try:
+#         response = requests.post(
+#             LM_URL,
+#             json={
+#                 "model": LM_MODEL,
+#                 "messages": [
+#                     {"role": "system", "content": "Return strict JSON only."},
+#                     {"role": "user", "content": prompt}
+#                 ],
+#                 "temperature": 0,
+#                 "max_tokens": 2500
+#             },
+#             timeout=120
+#         )
+
+#         data = response.json()
+#         return data["choices"][0]["message"]["content"]
+
+#     except Exception as e:
+#         return f"REQUEST_ERROR: {str(e)}"
+
+# # -----------------------------------------------------
+# # Execution Engine with Progress Bar
+# # -----------------------------------------------------
+
+# if st.button("🚀 Run Managed Processing"):
+
+#     run_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+#     run_id = f"run_{run_timestamp}"
+
+#     run_results = []
+#     execution_counter = 0
+#     total_processed = 0
+
+#     # UI placeholders
+#     execution_status = st.empty()
+#     row_status = st.empty()
+#     progress_bar = st.progress(0)
+
+#     for exec_i in range(num_executions):
+
+#         processed_ids = {item.get("id") for item in master_results}
+#         remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+#         if remaining_df.empty:
+#             execution_status.warning("No more remaining rows.")
+#             break
+
+#         execution_status.info(f"Execution {exec_i + 1} / {num_executions}")
+
+#         batch_df = remaining_df.head(rows_per_execution)
+#         batch_records = batch_df.to_dict("records")
+
+#         prompt = build_batch_prompt(batch_records)
+#         raw_response = call_lmstudio(prompt)
+
+#         parsed_json = safe_json_extract(raw_response)
+
+#         # Save debug every execution
+#         debug_log = {
+#             "run_id": run_id,
+#             "execution": exec_i + 1,
+#             "raw_response": raw_response
+#         }
+
+#         with open(DEBUG_PATH, "w", encoding="utf-8") as f:
+#             json.dump(debug_log, f, indent=2)
+
+#         if parsed_json is None:
+#             execution_status.error("JSON parsing failed.")
+#             st.code(raw_response)
+#             break
+
+#         # Map back using index
+#         for item in parsed_json:
+
+#             idx = item.get("index")
+
+#             if idx is None or idx >= len(batch_records):
+#                 continue
+
+#             original = batch_records[idx]
+
+#             result = {
+#                 "run_id": run_id,
+#                 "id": original["id"],
+#                 "sentence_norm": original["sentence_norm"],
+#                 "canonical_aspect": original["canonical_aspect"],
+#                 "aspect_categories": item.get("aspect_categories"),
+#                 "sentiment": item.get("sentiment"),
+#                 "tones": item.get("tones"),
+#                 "confidence": item.get("confidence"),
+#                 "reasoning": item.get("reasoning")
+#             }
+
+#             run_results.append(result)
+#             master_results.append(result)
+
+#             total_processed += 1
+#             row_status.write(f"Rows processed: {total_processed}")
+
+#         execution_counter += 1
+
+#         progress_ratio = min(total_processed / total_requested, 1.0)
+#         progress_bar.progress(progress_ratio)
+
+#         time.sleep(0.2)
+
+#     # -------------------------------------------------
+#     # Save Results
+#     # -------------------------------------------------
+
+#     run_path = RUNS_DIR / f"{run_id}.json"
+#     with open(run_path, "w", encoding="utf-8") as f:
+#         json.dump(run_results, f, indent=2)
+
+#     with open(MASTER_PATH, "w", encoding="utf-8") as f:
+#         json.dump(master_results, f, indent=2)
+
+#     # Update registry
+#     registry_entry = {
+#         "run_id": run_id,
+#         "timestamp": str(datetime.now()),
+#         "executions_completed": execution_counter,
+#         "rows_processed": total_processed
+#     }
+
+#     if REGISTRY_PATH.exists():
+#         with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
+#             registry_data = json.load(f)
+#     else:
+#         registry_data = []
+
+#     registry_data.append(registry_entry)
+
+#     with open(REGISTRY_PATH, "w", encoding="utf-8") as f:
+#         json.dump(registry_data, f, indent=2)
+
+#     execution_status.success("Processing complete.")
+#     progress_bar.progress(1.0)
+
+#     st.success(f"Run ID: {run_id}")
+#     st.write(f"Executions completed: {execution_counter}")
+#     st.write(f"Total rows processed: {total_processed}")
+
+
+# =====================================================
+# 🤖 ULTRA SAFE MULTI-EXECUTION LLM ENGINE
+# =====================================================
+
+# import requests
+# import time
+# from datetime import datetime
+
+# st.markdown("---")
+# st.header("🤖 Multi-Execution LLM Processing (Ultra Safe Mode)")
+
+# LM_URL = "http://localhost:1234/v1/chat/completions"
+# LM_MODEL = "mistralai/ministral-3-3b"   # change if needed
+
+
+# # =====================================================
+# # 🤖 ITERATION-MANAGED LLM ENGINE
+# # =====================================================
+
+# import requests
+# import time
+# import os
+# from datetime import datetime
+
+# st.markdown("---")
+# st.header("🤖 Managed LLM Iteration Engine")
+
+# LM_URL = "http://localhost:1234/v1/chat/completions"
+# LM_MODEL = "mistralai/ministral-3-3b"   # change if needed
+
+# RUNS_DIR = LOGS_DIR / "llm_runs"
+# MASTER_PATH = LOGS_DIR / "llm_master_results.json"
+# REGISTRY_PATH = LOGS_DIR / "llm_run_registry.json"
+
+# RUNS_DIR.mkdir(exist_ok=True)
+
+# # -----------------------------------------------------
+# # Combine FP + FN
+# # -----------------------------------------------------
+
+# review_df = pd.concat([fp_df, fn_df], ignore_index=True)
+
+# if review_df.empty:
+#     st.success("No unmatched pairs 🎉")
+#     st.stop()
+
+# review_df["id"] = review_df.apply(
+#     lambda x: f"{x['sentence_norm']}||{x['canonical_aspect']}",
+#     axis=1
+# )
+
+# # -----------------------------------------------------
+# # Load Master Store
+# # -----------------------------------------------------
+
+# if MASTER_PATH.exists():
+#     with open(MASTER_PATH, "r") as f:
+#         master_results = json.load(f)
+# else:
+#     master_results = []
+
+# processed_ids = {item["id"] for item in master_results}
+
+# remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+# # -----------------------------------------------------
+# # Dashboard
+# # -----------------------------------------------------
+
+# c1, c2 = st.columns(2)
+# c1.metric("Total Unmatched", len(review_df))
+# c2.metric("Remaining", len(remaining_df))
+
+# rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
+# num_executions = st.number_input("Number of executions", 1, 100, 1)
+
+# # -----------------------------------------------------
+# # Prompt Builder (NO ID DEPENDENCY)
+# # -----------------------------------------------------
+
+# def build_batch_prompt(batch_records):
+
+#     items_text = ""
+
+#     for i, item in enumerate(batch_records):
+#         items_text += f"""
+# INDEX: {i}
+# Sentence: "{item['sentence_norm']}"
+# Aspect: "{item['canonical_aspect']}"
+# """
+
+#     return f"""
+# Return ONLY JSON list.
+
+# Each item must contain:
+
+# - index
+# - aspect_categories
+# - sentiment
+# - tones
+# - confidence
+# - reasoning
+
+# Format:
+
+# [
+#   {{
+#     "index": 0,
+#     "aspect_categories": "...",
+#     "sentiment": "...",
+#     "tones": "...",
+#     "confidence": 0.95,
+#     "reasoning": "..."
+#   }}
+# ]
+
+# Items:
+# {items_text}
+# """
+
+# # -----------------------------------------------------
+# # Safe JSON Extract
+# # -----------------------------------------------------
+
+# def safe_json_extract(text):
+
+#     try:
+#         return json.loads(text)
+#     except:
+#         try:
+#             start = text.index("[")
+#             end = text.rindex("]") + 1
+#             return json.loads(text[start:end])
+#         except:
+#             return None
+
+# # -----------------------------------------------------
+# # LM Call
+# # -----------------------------------------------------
+
+# def call_lmstudio(prompt):
+
+#     response = requests.post(
+#         LM_URL,
+#         json={
+#             "model": LM_MODEL,
+#             "messages": [
+#                 {"role": "system", "content": "Strict JSON only."},
+#                 {"role": "user", "content": prompt}
+#             ],
+#             "temperature": 0,
+#             "max_tokens": 2500
+#         }
+#     )
+
+#     return response.json()["choices"][0]["message"]["content"]
+
+# # -----------------------------------------------------
+# # Execution Engine
+# # -----------------------------------------------------
+
+# if st.button("🚀 Run Managed Processing"):
+
+#     run_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+#     run_id = f"run_{run_timestamp}"
+
+#     run_results = []
+#     execution_counter = 0
+
+#     for exec_i in range(num_executions):
+
+#         processed_ids = {item["id"] for item in master_results}
+#         remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+#         if remaining_df.empty:
+#             break
+
+#         batch_df = remaining_df.head(rows_per_execution)
+#         batch_records = batch_df.to_dict("records")
+
+#         prompt = build_batch_prompt(batch_records)
+#         raw_response = call_lmstudio(prompt)
+
+#         parsed_json = safe_json_extract(raw_response)
+
+#         if parsed_json is None:
+#             st.error("JSON parsing failed.")
+#             st.code(raw_response)
+#             break
+
+#         # Map back using INDEX
+#         for item in parsed_json:
+
+#             idx = item.get("index")
+
+#             if idx is None or idx >= len(batch_records):
+#                 continue
+
+#             original = batch_records[idx]
+
+#             result = {
+#                 "run_id": run_id,
+#                 "id": original["id"],
+#                 "sentence_norm": original["sentence_norm"],
+#                 "canonical_aspect": original["canonical_aspect"],
+#                 "aspect_categories": item.get("aspect_categories"),
+#                 "sentiment": item.get("sentiment"),
+#                 "tones": item.get("tones"),
+#                 "confidence": item.get("confidence"),
+#                 "reasoning": item.get("reasoning")
+#             }
+
+#             run_results.append(result)
+#             master_results.append(result)
+
+#         execution_counter += 1
+#         time.sleep(0.2)
+
+#     # Save run file
+#     run_path = RUNS_DIR / f"{run_id}.json"
+#     with open(run_path, "w") as f:
+#         json.dump(run_results, f, indent=2)
+
+#     # Save master
+#     with open(MASTER_PATH, "w") as f:
+#         json.dump(master_results, f, indent=2)
+
+#     # Update registry
+#     registry = {
+#         "run_id": run_id,
+#         "timestamp": str(datetime.now()),
+#         "executions": execution_counter,
+#         "rows_processed": len(run_results)
+#     }
+
+#     if REGISTRY_PATH.exists():
+#         with open(REGISTRY_PATH, "r") as f:
+#             registry_data = json.load(f)
+#     else:
+#         registry_data = []
+
+#     registry_data.append(registry)
+
+#     with open(REGISTRY_PATH, "w") as f:
+#         json.dump(registry_data, f, indent=2)
+
+#     st.success(f"✅ Run completed: {run_id}")
+#     st.write(f"Executions: {execution_counter}")
+#     st.write(f"Rows processed: {len(run_results)}")
+
+# RESULT_JSON_PATH = LOGS_DIR / "llm_unmatched_results.json"
+# RESULT_CSV_PATH = LOGS_DIR / "llm_unmatched_results.csv"
+# DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
+
+# # -----------------------------------------------------
+# # Combine FP + FN
+# # -----------------------------------------------------
+
+# review_df = pd.concat([fp_df, fn_df], ignore_index=True)
+
+# if review_df.empty:
+#     st.success("No unmatched pairs 🎉")
+#     st.stop()
+
+# review_df["id"] = review_df.apply(
+#     lambda x: f"{x['sentence_norm']}||{x['canonical_aspect']}",
+#     axis=1
+# )
+
+# # -----------------------------------------------------
+# # Load Stored Results
+# # -----------------------------------------------------
+
+# if RESULT_JSON_PATH.exists():
+#     with open(RESULT_JSON_PATH, "r", encoding="utf-8") as f:
+#         stored_results = json.load(f)
+# else:
+#     stored_results = []
+
+# if not isinstance(stored_results, list):
+#     stored_results = []
+
+# processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+# remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+# # -----------------------------------------------------
+# # Dashboard
+# # -----------------------------------------------------
+
+# c1, c2 = st.columns(2)
+# c1.metric("Total Unmatched", len(review_df))
+# c2.metric("Remaining", len(remaining_df))
+
+# rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
+# num_executions = st.number_input("Number of executions", 1, 100, 1)
+
+# # -----------------------------------------------------
+# # Prompt Builder (Marker Enforced)
+# # -----------------------------------------------------
+
+# def build_batch_prompt(batch_records):
+
+#     items_text = ""
+
+#     for item in batch_records:
+#         items_text += f"""
+# ID: {item['id']}
+# Sentence: "{item['sentence_norm']}"
+# Aspect: "{item['canonical_aspect']}"
+# """
+
+#     return f"""
+# You MUST return ONLY valid JSON list.
+# Do NOT explain.
+# Do NOT add markdown.
+# Do NOT add text before or after.
+
+# Wrap the JSON with markers:
+
+# START_JSON
+# <JSON HERE>
+# END_JSON
+
+# Format example:
+
+# START_JSON
+# [
+#   {{
+#     "id": "...",
+#     "aspect_categories": "...",
+#     "sentiment": "...",
+#     "tones": "...",
+#     "confidence": 0.95,
+#     "reasoning": "..."
+#   }}
+# ]
+# END_JSON
+
+# Now process:
+
+# {items_text}
+# """
+
+# # -----------------------------------------------------
+# # Safe JSON Extractor (Marker Based)
+# # -----------------------------------------------------
+
+# def extract_json_with_markers(text):
+
+#     try:
+#         start = text.index("START_JSON") + len("START_JSON")
+#         end = text.index("END_JSON")
+#         json_block = text[start:end].strip()
+#         return json.loads(json_block), None
+#     except Exception as e:
+#         return None, str(e)
+
+# # -----------------------------------------------------
+# # Call LMStudio
+# # -----------------------------------------------------
+
+# def call_lmstudio(prompt):
+
+#     try:
+#         response = requests.post(
+#             LM_URL,
+#             json={
+#                 "model": LM_MODEL,
+#                 "messages": [
+#                     {"role": "system", "content": "Return strict JSON only."},
+#                     {"role": "user", "content": prompt}
+#                 ],
+#                 "temperature": 0,
+#                 "max_tokens": 2500
+#             },
+#             timeout=120
+#         )
+
+#         data = response.json()
+#         return data["choices"][0]["message"]["content"]
+
+#     except Exception as e:
+#         return f"REQUEST_ERROR: {str(e)}"
+
+# # -----------------------------------------------------
+# # Execution Engine
+# # -----------------------------------------------------
+
+# if st.button("🚀 Run Processing"):
+
+#     execution_counter = 0
+#     total_processed = 0
+#     progress = st.progress(0)
+
+#     for exec_i in range(num_executions):
+
+#         processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+#         remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+#         if remaining_df.empty:
+#             break
+
+#         batch_df = remaining_df.head(rows_per_execution)
+#         batch_records = batch_df.to_dict("records")
+
+#         prompt = build_batch_prompt(batch_records)
+
+#         raw_response = call_lmstudio(prompt)
+
+#         parsed_json, parse_error = extract_json_with_markers(raw_response)
+
+#         # Save debug
+#         debug_log = {
+#             "timestamp": str(datetime.now()),
+#             "execution": exec_i + 1,
+#             "raw_response": raw_response,
+#             "parse_error": parse_error
+#         }
+
+#         with open(DEBUG_PATH, "w", encoding="utf-8") as f:
+#             json.dump(debug_log, f, indent=2, ensure_ascii=False)
+
+#         if parsed_json is None:
+#             st.error(f"❌ Execution {exec_i+1} failed: {parse_error}")
+#             st.write("Raw response:")
+#             st.code(raw_response)
+#             break
+
+#         if not isinstance(parsed_json, list):
+#             st.error("Returned JSON is not a list.")
+#             break
+
+#         for item in parsed_json:
+
+#             if not isinstance(item, dict):
+#                 continue
+
+#             original = next(
+#                 (x for x in batch_records if x["id"] == item.get("id")),
+#                 None
+#             )
+
+#             if original:
+#                 item["sentence_norm"] = original["sentence_norm"]
+#                 item["canonical_aspect"] = original["canonical_aspect"]
+#                 stored_results.append(item)
+#                 total_processed += 1
+
+#         execution_counter += 1
+#         progress.progress((exec_i + 1) / num_executions)
+#         time.sleep(0.3)
+
+#     # Save persistent
+#     with open(RESULT_JSON_PATH, "w", encoding="utf-8") as f:
+#         json.dump(stored_results, f, indent=2, ensure_ascii=False)
+
+#     pd.DataFrame(stored_results).to_csv(RESULT_CSV_PATH, index=False)
+
+#     st.success(f"✅ Completed {execution_counter} executions.")
+#     st.success(f"Total rows processed this run: {total_processed}")
 
 
 # # =====================================================

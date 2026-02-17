@@ -1,0 +1,352 @@
+[
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Kami menyempurnakan Japfa Sustainability Reporting System (JSRS) dengan menambahkan cakupan yang relevan, sehingga secara signifikan meningkatkan kelengkapan dan akurasi data.||data accuracy and completeness",
+    "sentence_norm": "Kami menyempurnakan Japfa Sustainability Reporting System (JSRS) dengan menambahkan cakupan yang relevan, sehingga secara signifikan meningkatkan kelengkapan dan akurasi data.",
+    "canonical_aspect": "data accuracy and completeness",
+    "aspect_categories": [
+      "data quality",
+      "reporting completeness"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "optimism",
+      "commitment",
+      "professionalism"
+    ],
+    "confidence": 0.98,
+    "reasoning": "The sentence emphasizes enhancing the JSRS with relevant coverage, leading to improved data accuracy and comprehensiveness. The use of terms like 'signifikan' (significant) and 'kelengkapan dan akurasi' (completeness and accuracy) conveys a strong positive sentiment regarding the enhancement process."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "This, our second annual report, illustrates our continuing dedication to our sustainability commitments, and highlights the strategies and initiatives that we have implemented to achieve our goals in line with the SDGs.||sustainability commitment",
+    "sentence_norm": "This, our second annual report, illustrates our continuing dedication to our sustainability commitments, and highlights the strategies and initiatives that we have implemented to achieve our goals in line with the SDGs.",
+    "canonical_aspect": "sustainability commitment",
+    "aspect_categories": [
+      "sustainability commitment",
+      "strategic alignment"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "dedication",
+      "ambition"
+    ],
+    "confidence": 0.97,
+    "reasoning": "The sentence highlights the company's second annual report, illustrating ongoing dedication to sustainability and alignment with SDGs. Phrases like 'continuing dedication' and 'strategies and initiatives implemented' reflect a strong positive commitment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Readers are advised to exercise caution and not rely solely on these statements for decision-making purposes.||risk management",
+    "sentence_norm": "Readers are advised to exercise caution and not rely solely on these statements for decision-making purposes.",
+    "canonical_aspect": "risk management",
+    "aspect_categories": [
+      "risk management"
+    ],
+    "sentiment": "neutral",
+    "tones": [
+      "caution",
+      "advisory"
+    ],
+    "confidence": 0.85,
+    "reasoning": "The sentence advises caution regarding the use of statements for decision-making, indicating a neutral stance on risk management without strong positive or negative sentiment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "To guarantee the accuracy and reliability of this report, Indofood has retained PT Moores Rowland Indonesia, an independent assurance service provider, to conduct verification and limited assurance.||assurance",
+    "sentence_norm": "To guarantee the accuracy and reliability of this report, Indofood has retained PT Moores Rowland Indonesia, an independent assurance service provider, to conduct verification and limited assurance.",
+    "canonical_aspect": "assurance",
+    "aspect_categories": [
+      "assurance",
+      "independence"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "trust",
+      "professionalism",
+      "reliability"
+    ],
+    "confidence": 0.96,
+    "reasoning": "The mention of an independent assurance provider (PT Moores Rowland Indonesia) for verification and limited assurance conveys trustworthiness and reliability, reflecting a positive sentiment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Perusahaan senantiasa menerapkan strategi pengelolaan hutan lestari dalam menjalankan kegiatan operasionalnya sehingga dapat mengurangi dampak lingkungan, meningkatkan manfaat sosial ekonomi, dan program perbaikan berkelanjutan untuk mencapai kinerja lingkungan yang berarti.||sustainable forest management",
+    "sentence_norm": "Perusahaan senantiasa menerapkan strategi pengelolaan hutan lestari dalam menjalankan kegiatan operasionalnya sehingga dapat mengurangi dampak lingkungan, meningkatkan manfaat sosial ekonomi, dan program perbaikan berkelanjutan untuk mencapai kinerja lingkungan yang berarti.",
+    "canonical_aspect": "sustainable forest management",
+    "aspect_categories": [
+      "sustainable forest management",
+      "environmental impact"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "responsibility",
+      "sustainability"
+    ],
+    "confidence": 0.97,
+    "reasoning": "The sentence describes consistent application of sustainable forestry practices to reduce environmental impacts and improve social-economic benefits, reflecting strong positive commitment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Engagement with a range of stakeholders including employees, investors, suppliers, customers, peer companies, public policymakers, industry bodies, nongovernmental organizations (NGOs), and sector experts.||community engagement",
+    "sentence_norm": "Engagement with a range of stakeholders including employees, investors, suppliers, customers, peer companies, public policymakers, industry bodies, nongovernmental organizations (NGOs), and sector experts.",
+    "canonical_aspect": "community engagement",
+    "aspect_categories": [
+      "community engagement",
+      "stakeholder involvement"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "collaboration",
+      "inclusivity",
+      "transparency"
+    ],
+    "confidence": 0.96,
+    "reasoning": "Engagement with diverse stakeholders (employees, investors, NGOs) highlights a commitment to inclusive and transparent engagement, reflecting positive sentiment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "This is the heart of our societal impact\u2014helping prepare the next generation for the future of work by expanding access to education, technology, and support systems people need to thrive.||societal impact",
+    "sentence_norm": "This is the heart of our societal impact\u2014helping prepare the next generation for the future of work by expanding access to education, technology, and support systems people need to thrive.",
+    "canonical_aspect": "societal impact",
+    "aspect_categories": [
+      "societal impact",
+      "education"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "empowerment",
+      "social responsibility",
+      "future readiness"
+    ],
+    "confidence": 0.95,
+    "reasoning": "Focus on preparing future generations through education and support systems conveys a strong positive sentiment toward societal impact."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "85||none",
+    "sentence_norm": "85",
+    "canonical_aspect": "none",
+    "aspect_categories": [
+      "none"
+    ],
+    "sentiment": "neutral",
+    "tones": [],
+    "confidence": 0.5,
+    "reasoning": "The sentence is a standalone number ('85'), which does not convey any meaningful sentiment or aspect."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Sejalan dengan komitmen kami untuk menjaga performa terbaik, kami secara konsisten menerapkan standar kinerja tertinggi untuk mendorong produktivitas dan memperkuat jaringan ritel di keempat vertikal kami: Erajaya Digital, Active Lifestyle, Food & Nourishment, dan Beauty & Wellness.||performance standards",
+    "sentence_norm": "Sejalan dengan komitmen kami untuk menjaga performa terbaik, kami secara konsisten menerapkan standar kinerja tertinggi untuk mendorong produktivitas dan memperkuat jaringan ritel di keempat vertikal kami: Erajaya Digital, Active Lifestyle, Food & Nourishment, dan Beauty & Wellness.",
+    "canonical_aspect": "performance standards",
+    "aspect_categories": [
+      "performance standards",
+      "operational excellence"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "consistency",
+      "professionalism",
+      "leadership"
+    ],
+    "confidence": 0.97,
+    "reasoning": "Consistent application of high performance standards across multiple verticals (Erajaya Digital, Active Lifestyle, etc.) reflects strong positive sentiment toward operational excellence."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "We have also been reporting in line with the Task Force on Climate-Related Financial Disclosures (TCFD) for several years, which further supports our preparedness.||climate reporting",
+    "sentence_norm": "We have also been reporting in line with the Task Force on Climate-Related Financial Disclosures (TCFD) for several years, which further supports our preparedness.",
+    "canonical_aspect": "climate reporting",
+    "aspect_categories": [
+      "climate reporting",
+      "financial transparency"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "compliance",
+      "preparedness",
+      "responsibility"
+    ],
+    "confidence": 0.95,
+    "reasoning": "Alignment with TCFD for climate-related disclosures indicates a commitment to financial transparency and preparedness, reflecting positive sentiment."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "With those commitments, the Company succeeded in maintaining the Gold PROPER for Kamojang Area for seven years in a row, Green PROPER for Ulubelu Area, and Blue PROPER for Lahendong and Sibayak Areas.||proper certification",
+    "sentence_norm": "With those commitments, the Company succeeded in maintaining the Gold PROPER for Kamojang Area for seven years in a row, Green PROPER for Ulubelu Area, and Blue PROPER for Lahendong and Sibayak Areas.",
+    "canonical_aspect": "proper certification",
+    "aspect_categories": [
+      "certification",
+      "sustainability"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "achievement",
+      "pride"
+    ],
+    "confidence": 0.98,
+    "reasoning": "The sentence highlights successful long-term certifications (Gold, Green, Blue) for multiple areas, indicating strong commitment and sustained success in environmental compliance."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Sampoerna merupakan pelopor kategori Sigaret Kretek Mesin Kadar Tar Rendah (SKM LT) di Indonesia dengan memperkenalkan produk Sampoerna A pada tahun 1989, serta memproduksi sejumlah merek rokok kretek yang telah dikenal luas.||product innovation - low tar kretek",
+    "sentence_norm": "Sampoerna merupakan pelopor kategori Sigaret Kretek Mesin Kadar Tar Rendah (SKM LT) di Indonesia dengan memperkenalkan produk Sampoerna A pada tahun 1989, serta memproduksi sejumlah merek rokok kretek yang telah dikenal luas.",
+    "canonical_aspect": "product innovation - low tar kretek",
+    "aspect_categories": [
+      "innovation",
+      "market leadership"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "leadership",
+      "innovation",
+      "historical significance"
+    ],
+    "confidence": 0.97,
+    "reasoning": "The sentence emphasizes Sampoerna's pioneering role in introducing low-tar kretek products, showcasing innovation and market dominance."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "We have been gradually implementing the green office concept, by encouraging employees to save energy and use of water, as well as reduce waste generation from activities in the office environment.||green office implementation",
+    "sentence_norm": "We have been gradually implementing the green office concept, by encouraging employees to save energy and use of water, as well as reduce waste generation from activities in the office environment.",
+    "canonical_aspect": "green office implementation",
+    "aspect_categories": [
+      "sustainability",
+      "corporate responsibility"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "progress",
+      "environmental awareness"
+    ],
+    "confidence": 0.96,
+    "reasoning": "The sentence describes proactive steps toward a green office, reflecting dedication to sustainability and operational efficiency."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "We are committed to integrating ESG considerations into our business strategy.||esg integration",
+    "sentence_norm": "We are committed to integrating ESG considerations into our business strategy.",
+    "canonical_aspect": "esg integration",
+    "aspect_categories": [
+      "sustainability",
+      "corporate governance"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "strategic focus"
+    ],
+    "confidence": 0.97,
+    "reasoning": "The sentence explicitly states the company's dedication to integrating ESG (Environmental, Social, Governance) principles into its business strategy."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "We helped victims of natural disaster and continuously contribute to Covid-19 handling within the country, among others by providing vaccines.||disaster relief and pandemic support",
+    "sentence_norm": "We helped victims of natural disaster and continuously contribute to Covid-19 handling within the country, among others by providing vaccines.",
+    "canonical_aspect": "disaster relief and pandemic support",
+    "aspect_categories": [
+      "social responsibility",
+      "community impact"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "compassion",
+      "commitment",
+      "public service"
+    ],
+    "confidence": 0.98,
+    "reasoning": "The sentence highlights the company\u2019s active involvement in disaster relief and pandemic response, demonstrating strong social responsibility."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "The selection of the external assurance provider adhered strictly to the company's procurement policies, ensuring expertise, strong reputation, and no conflicts of interest.||assurance provider selection",
+    "sentence_norm": "The selection of the external assurance provider adhered strictly to the company's procurement policies, ensuring expertise, strong reputation, and no conflicts of interest.",
+    "canonical_aspect": "assurance provider selection",
+    "aspect_categories": [
+      "ethics",
+      "compliance"
+    ],
+    "sentiment": "neutral",
+    "tones": [
+      "formality",
+      "accountability"
+    ],
+    "confidence": 0.94,
+    "reasoning": "The sentence describes adherence to procurement policies for assurance provider selection, emphasizing compliance and professionalism."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Tahun 2022 lalu menjadi momentum untuk terus meraih pertumbuhan usaha yang positif dan berkelanjutan.||pertumbuhan usaha",
+    "sentence_norm": "Tahun 2022 lalu menjadi momentum untuk terus meraih pertumbuhan usaha yang positif dan berkelanjutan.",
+    "canonical_aspect": "pertumbuhan usaha",
+    "aspect_categories": [
+      "growth",
+      "business performance"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "optimism",
+      "success",
+      "sustainability"
+    ],
+    "confidence": 0.95,
+    "reasoning": "The sentence reflects positive and continuous business growth, indicating a successful and resilient enterprise."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Therefore, BRMS consistently partners up with other organizations and institutions that have the same goals.||partnerships and collaborations",
+    "sentence_norm": "Therefore, BRMS consistently partners up with other organizations and institutions that have the same goals.",
+    "canonical_aspect": "partnerships and collaborations",
+    "aspect_categories": [
+      "partnerships",
+      "collaboration"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "commitment",
+      "synergy",
+      "alignment"
+    ],
+    "confidence": 0.96,
+    "reasoning": "The sentence underscores consistent partnerships with organizations sharing similar goals, highlighting collaborative strength."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "The Company is also committed to expand IoT sector as manifestation of the future is now spirit, where the Company had analyzed shifting in mobile phone and internet utilization nowadays where all devices have been connected with internet, both handset and wearable devices providing solution for user's needs in daily activities.||digital transformation and innovation",
+    "sentence_norm": "The Company is also committed to expand IoT sector as manifestation of the future is now spirit, where the Company had analyzed shifting in mobile phone and internet utilization nowadays where all devices have been connected with internet, both handset and wearable devices providing solution for user's needs in daily activities.",
+    "canonical_aspect": "digital transformation and innovation",
+    "aspect_categories": [
+      "innovation",
+      "technology"
+    ],
+    "sentiment": "positive",
+    "tones": [
+      "forward-thinking",
+      "future-oriented",
+      "technological advancement"
+    ],
+    "confidence": 0.97,
+    "reasoning": "The sentence describes the company\u2019s commitment to expanding IoT and digital transformation, reflecting a proactive approach toward future innovation."
+  },
+  {
+    "run_id": "run_20260217_164236",
+    "id": "Prohibiting the employment of underage children and refraining from forced labor and modern slavery.||child labor",
+    "sentence_norm": "Prohibiting the employment of underage children and refraining from forced labor and modern slavery.",
+    "canonical_aspect": "child labor",
+    "aspect_categories": [
+      "ethics",
+      "social responsibility"
+    ],
+    "sentiment": "negative",
+    "tones": [
+      "concern",
+      "regulatory compliance"
+    ],
+    "confidence": 0.85,
+    "reasoning": "The sentence mentions prohibitions on child labor and forced labor, which could be interpreted as a negative sentiment toward unethical practices in the industry."
+  }
+]
