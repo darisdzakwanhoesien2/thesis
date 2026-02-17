@@ -441,7 +441,7 @@ with st.expander("Download Evaluation Results"):
     )
 
 # =====================================================
-# 🤖 SAFE LLM PROCESSING (DEBUG MODE)
+# 🤖 ULTRA SAFE MULTI-EXECUTION LLM ENGINE
 # =====================================================
 
 import requests
@@ -449,13 +449,14 @@ import time
 from datetime import datetime
 
 st.markdown("---")
-st.header("🤖 LLM Processing (Debug Enabled)")
+st.header("🤖 Multi-Execution LLM Processing (Ultra Safe Mode)")
 
 LM_URL = "http://localhost:1234/v1/chat/completions"
-LM_MODEL = "local-model"
+LM_MODEL = "mistralai/ministral-3-3b"   # change if needed
 
-LLM_SAVE_PATH = LOGS_DIR / "llm_unmatched_results.csv"
-LLM_DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
+RESULT_JSON_PATH = LOGS_DIR / "llm_unmatched_results.json"
+RESULT_CSV_PATH = LOGS_DIR / "llm_unmatched_results.csv"
+DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
 
 # -----------------------------------------------------
 # Combine FP + FN
@@ -464,7 +465,7 @@ LLM_DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
 review_df = pd.concat([fp_df, fn_df], ignore_index=True)
 
 if review_df.empty:
-    st.success("No unmatched pairs to process 🎉")
+    st.success("No unmatched pairs 🎉")
     st.stop()
 
 review_df["id"] = review_df.apply(
@@ -473,80 +474,95 @@ review_df["id"] = review_df.apply(
 )
 
 # -----------------------------------------------------
-# Load Already Processed
+# Load Stored Results
 # -----------------------------------------------------
 
-if LLM_SAVE_PATH.exists():
-    processed_df = pd.read_csv(LLM_SAVE_PATH)
-    processed_ids = set(processed_df["id"])
+if RESULT_JSON_PATH.exists():
+    with open(RESULT_JSON_PATH, "r", encoding="utf-8") as f:
+        stored_results = json.load(f)
 else:
-    processed_df = pd.DataFrame()
-    processed_ids = set()
+    stored_results = []
 
+if not isinstance(stored_results, list):
+    stored_results = []
+
+processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
 remaining_df = review_df[~review_df["id"].isin(processed_ids)]
 
-st.subheader("📊 Processing Overview")
+# -----------------------------------------------------
+# Dashboard
+# -----------------------------------------------------
 
 c1, c2 = st.columns(2)
 c1.metric("Total Unmatched", len(review_df))
-c2.metric("Remaining To Process", len(remaining_df))
+c2.metric("Remaining", len(remaining_df))
 
-with st.expander("View Remaining Samples"):
-    st.dataframe(remaining_df[["sentence_norm", "canonical_aspect"]])
-
-rows_to_process = st.number_input(
-    "How many rows to process now?",
-    min_value=1,
-    max_value=len(remaining_df) if len(remaining_df) > 0 else 1,
-    value=min(3, len(remaining_df)) if len(remaining_df) > 0 else 1
-)
+rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
+num_executions = st.number_input("Number of executions", 1, 100, 1)
 
 # -----------------------------------------------------
-# Prompt Builder
+# Prompt Builder (Marker Enforced)
 # -----------------------------------------------------
 
-def build_prompt(sentence, aspect):
+def build_batch_prompt(batch_records):
+
+    items_text = ""
+
+    for item in batch_records:
+        items_text += f"""
+ID: {item['id']}
+Sentence: "{item['sentence_norm']}"
+Aspect: "{item['canonical_aspect']}"
+"""
+
     return f"""
-You are an ESG annotation validator.
+You MUST return ONLY valid JSON list.
+Do NOT explain.
+Do NOT add markdown.
+Do NOT add text before or after.
 
-Sentence:
-"{sentence}"
+Wrap the JSON with markers:
 
-Aspect:
-"{aspect}"
+START_JSON
+<JSON HERE>
+END_JSON
 
-Return STRICT JSON:
+Format example:
 
-{{
-  "aspect_categories": "...",
-  "sentiment": "...",
-  "tones": "...",
-  "confidence": 0.0,
-  "reasoning": "..."
-}}
+START_JSON
+[
+  {{
+    "id": "...",
+    "aspect_categories": "...",
+    "sentiment": "...",
+    "tones": "...",
+    "confidence": 0.95,
+    "reasoning": "..."
+  }}
+]
+END_JSON
+
+Now process:
+
+{items_text}
 """
 
 # -----------------------------------------------------
-# Safe JSON Extractor
+# Safe JSON Extractor (Marker Based)
 # -----------------------------------------------------
 
-def safe_json_extract(text):
+def extract_json_with_markers(text):
 
     try:
-        return json.loads(text), None
+        start = text.index("START_JSON") + len("START_JSON")
+        end = text.index("END_JSON")
+        json_block = text[start:end].strip()
+        return json.loads(json_block), None
     except Exception as e:
-
-        # Try to extract JSON block manually
-        try:
-            start = text.index("{")
-            end = text.rindex("}") + 1
-            cleaned = text[start:end]
-            return json.loads(cleaned), None
-        except Exception as e2:
-            return None, str(e2)
+        return None, str(e)
 
 # -----------------------------------------------------
-# LM Call
+# Call LMStudio
 # -----------------------------------------------------
 
 def call_lmstudio(prompt):
@@ -557,124 +573,324 @@ def call_lmstudio(prompt):
             json={
                 "model": LM_MODEL,
                 "messages": [
-                    {"role": "system", "content": "You are a strict ESG labeling engine."},
+                    {"role": "system", "content": "Return strict JSON only."},
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": 0,
-                "max_tokens": 400
+                "max_tokens": 2500
             },
-            timeout=60
+            timeout=120
         )
 
-        return response.text
+        data = response.json()
+        return data["choices"][0]["message"]["content"]
 
     except Exception as e:
         return f"REQUEST_ERROR: {str(e)}"
 
 # -----------------------------------------------------
-# Run Processing
+# Execution Engine
 # -----------------------------------------------------
 
-if st.button("🚀 Run LLM Processing"):
+if st.button("🚀 Run Processing"):
 
-    if len(remaining_df) == 0:
-        st.warning("Nothing left to process.")
-        st.stop()
-
-    batch_df = remaining_df.head(rows_to_process)
-
-    results = []
-    debug_logs = []
-
+    execution_counter = 0
+    total_processed = 0
     progress = st.progress(0)
 
-    for i, row in batch_df.iterrows():
+    for exec_i in range(num_executions):
 
-        prompt = build_prompt(row["sentence_norm"], row["canonical_aspect"])
+        processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+        remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+        if remaining_df.empty:
+            break
+
+        batch_df = remaining_df.head(rows_per_execution)
+        batch_records = batch_df.to_dict("records")
+
+        prompt = build_batch_prompt(batch_records)
 
         raw_response = call_lmstudio(prompt)
 
-        parsed_json, parse_error = safe_json_extract(raw_response)
+        parsed_json, parse_error = extract_json_with_markers(raw_response)
 
-        # Store debug info
-        debug_logs.append({
+        # Save debug
+        debug_log = {
             "timestamp": str(datetime.now()),
-            "id": row["id"],
-            "prompt": prompt,
+            "execution": exec_i + 1,
             "raw_response": raw_response,
-            "parsed_json": parsed_json,
             "parse_error": parse_error
-        })
+        }
 
-        if parsed_json:
+        with open(DEBUG_PATH, "w", encoding="utf-8") as f:
+            json.dump(debug_log, f, indent=2, ensure_ascii=False)
 
-            result = {
-                "id": row["id"],
-                "sentence_norm": row["sentence_norm"],
-                "canonical_aspect": row["canonical_aspect"],
-                "aspect_categories": parsed_json.get("aspect_categories", "none"),
-                "sentiment": parsed_json.get("sentiment", "none"),
-                "tones": parsed_json.get("tones", "none"),
-                "confidence": parsed_json.get("confidence", 0),
-                "reasoning": parsed_json.get("reasoning", ""),
-                "parse_error": ""
-            }
+        if parsed_json is None:
+            st.error(f"❌ Execution {exec_i+1} failed: {parse_error}")
+            st.write("Raw response:")
+            st.code(raw_response)
+            break
 
-        else:
+        if not isinstance(parsed_json, list):
+            st.error("Returned JSON is not a list.")
+            break
 
-            result = {
-                "id": row["id"],
-                "sentence_norm": row["sentence_norm"],
-                "canonical_aspect": row["canonical_aspect"],
-                "aspect_categories": "none",
-                "sentiment": "none",
-                "tones": "none",
-                "confidence": 0,
-                "reasoning": "",
-                "parse_error": parse_error
-            }
+        for item in parsed_json:
 
-        results.append(result)
+            if not isinstance(item, dict):
+                continue
 
-        progress.progress((len(results)) / len(batch_df))
-        time.sleep(0.1)
+            original = next(
+                (x for x in batch_records if x["id"] == item.get("id")),
+                None
+            )
 
-    # -----------------------------------------------------
-    # Save Results
-    # -----------------------------------------------------
+            if original:
+                item["sentence_norm"] = original["sentence_norm"]
+                item["canonical_aspect"] = original["canonical_aspect"]
+                stored_results.append(item)
+                total_processed += 1
 
-    new_df = pd.DataFrame(results)
-    final_df = pd.concat([processed_df, new_df], ignore_index=True)
-    final_df.to_csv(LLM_SAVE_PATH, index=False)
+        execution_counter += 1
+        progress.progress((exec_i + 1) / num_executions)
+        time.sleep(0.3)
 
-    # Save Debug Logs
-    with open(LLM_DEBUG_PATH, "w", encoding="utf-8") as f:
-        json.dump(debug_logs, f, indent=2, ensure_ascii=False)
+    # Save persistent
+    with open(RESULT_JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(stored_results, f, indent=2, ensure_ascii=False)
 
-    st.success("Processing complete and saved.")
+    pd.DataFrame(stored_results).to_csv(RESULT_CSV_PATH, index=False)
 
-    st.subheader("🆕 New Results")
-    st.dataframe(new_df)
+    st.success(f"✅ Completed {execution_counter} executions.")
+    st.success(f"Total rows processed this run: {total_processed}")
 
-# -----------------------------------------------------
-# Show Full History
-# -----------------------------------------------------
 
-if LLM_SAVE_PATH.exists():
-    st.markdown("---")
-    st.subheader("📁 All Processed LLM Results")
+# # =====================================================
+# # 🤖 SAFE MULTI-EXECUTION LLM PROCESSING (FINAL STABLE)
+# # =====================================================
 
-    history_df = pd.read_csv(LLM_SAVE_PATH)
-    st.dataframe(history_df)
+# import requests
+# import time
+# from datetime import datetime
 
-if LLM_DEBUG_PATH.exists():
-    st.markdown("---")
-    st.subheader("🛠 Debug Log (Last Run)")
+# st.markdown("---")
+# st.header("🤖 Multi-Execution Batch Processing (Safe Mode)")
 
-    with open(LLM_DEBUG_PATH, "r", encoding="utf-8") as f:
-        debug_data = json.load(f)
+# LM_URL = "http://localhost:1234/v1/chat/completions"
+# LM_MODEL = "local-model"
 
-    st.json(debug_data)
+# RESULT_JSON_PATH = LOGS_DIR / "llm_unmatched_results.json"
+# RESULT_CSV_PATH = LOGS_DIR / "llm_unmatched_results.csv"
+# DEBUG_PATH = LOGS_DIR / "llm_debug_log.json"
+
+# # -----------------------------------------------------
+# # Combine FP + FN
+# # -----------------------------------------------------
+
+# review_df = pd.concat([fp_df, fn_df], ignore_index=True)
+
+# if review_df.empty:
+#     st.success("No unmatched pairs 🎉")
+#     st.stop()
+
+# review_df["id"] = review_df.apply(
+#     lambda x: f"{x['sentence_norm']}||{x['canonical_aspect']}",
+#     axis=1
+# )
+
+# # -----------------------------------------------------
+# # Load Stored Results
+# # -----------------------------------------------------
+
+# if RESULT_JSON_PATH.exists():
+#     with open(RESULT_JSON_PATH, "r", encoding="utf-8") as f:
+#         stored_results = json.load(f)
+# else:
+#     stored_results = []
+
+# if not isinstance(stored_results, list):
+#     stored_results = []
+
+# processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+
+# remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+# # -----------------------------------------------------
+# # Dashboard
+# # -----------------------------------------------------
+
+# c1, c2 = st.columns(2)
+# c1.metric("Total Unmatched", len(review_df))
+# c2.metric("Remaining", len(remaining_df))
+
+# rows_per_execution = st.number_input("Rows per execution", 1, 50, 10)
+# num_executions = st.number_input("Number of executions", 1, 100, 1)
+
+# # -----------------------------------------------------
+# # Prompt Builder
+# # -----------------------------------------------------
+
+# def build_batch_prompt(batch_records):
+
+#     items_text = ""
+
+#     for item in batch_records:
+#         items_text += f"""
+# ID: {item['id']}
+# Sentence: "{item['sentence_norm']}"
+# Aspect: "{item['canonical_aspect']}"
+# """
+
+#     return f"""
+# Return STRICT JSON LIST.
+
+# Format:
+# [
+#   {{
+#     "id": "...",
+#     "aspect_categories": "...",
+#     "sentiment": "...",
+#     "tones": "...",
+#     "confidence": 0.0,
+#     "reasoning": "..."
+#   }}
+# ]
+
+# Items:
+# {items_text}
+# """
+
+# # -----------------------------------------------------
+# # Safe JSON Extractor
+# # -----------------------------------------------------
+
+# def safe_json_extract(text):
+
+#     try:
+#         parsed = json.loads(text)
+#     except:
+#         try:
+#             start = text.index("[")
+#             end = text.rindex("]") + 1
+#             parsed = json.loads(text[start:end])
+#         except:
+#             return None, "JSON extraction failed"
+
+#     # Normalize
+#     if isinstance(parsed, dict):
+#         parsed = [parsed]
+
+#     if isinstance(parsed, str):
+#         try:
+#             parsed = json.loads(parsed)
+#         except:
+#             return None, "Parsed output is string"
+
+#     if not isinstance(parsed, list):
+#         return None, "Parsed output not list"
+
+#     return parsed, None
+
+# # -----------------------------------------------------
+# # LM Call
+# # -----------------------------------------------------
+
+# def call_lmstudio(prompt):
+
+#     try:
+#         response = requests.post(
+#             LM_URL,
+#             json={
+#                 "model": LM_MODEL,
+#                 "messages": [
+#                     {"role": "system", "content": "Strict JSON only."},
+#                     {"role": "user", "content": prompt}
+#                 ],
+#                 "temperature": 0,
+#                 "max_tokens": 2000
+#             },
+#             timeout=120
+#         )
+
+#         data = response.json()
+#         return data["choices"][0]["message"]["content"]
+
+#     except Exception as e:
+#         return f"REQUEST_ERROR: {str(e)}"
+
+# # -----------------------------------------------------
+# # EXECUTION ENGINE
+# # -----------------------------------------------------
+
+# if st.button("🚀 Run Processing"):
+
+#     execution_counter = 0
+#     total_processed = 0
+#     progress = st.progress(0)
+
+#     for exec_i in range(num_executions):
+
+#         processed_ids = {item.get("id") for item in stored_results if isinstance(item, dict)}
+#         remaining_df = review_df[~review_df["id"].isin(processed_ids)]
+
+#         if remaining_df.empty:
+#             break
+
+#         batch_df = remaining_df.head(rows_per_execution)
+#         batch_records = batch_df.to_dict("records")
+
+#         prompt = build_batch_prompt(batch_records)
+
+#         raw_response = call_lmstudio(prompt)
+
+#         parsed_json, parse_error = safe_json_extract(raw_response)
+
+#         debug_log = {
+#             "timestamp": str(datetime.now()),
+#             "execution": exec_i + 1,
+#             "raw_response": raw_response,
+#             "parse_error": parse_error
+#         }
+
+#         with open(DEBUG_PATH, "w", encoding="utf-8") as f:
+#             json.dump(debug_log, f, indent=2, ensure_ascii=False)
+
+#         if parsed_json is None:
+#             st.error(f"❌ Execution {exec_i+1} failed: {parse_error}")
+#             break
+
+#         # Safe attachment
+#         for item in parsed_json:
+
+#             if not isinstance(item, dict):
+#                 continue
+
+#             original = next(
+#                 (x for x in batch_records if x["id"] == item.get("id")),
+#                 None
+#             )
+
+#             if original:
+#                 item["sentence_norm"] = original["sentence_norm"]
+#                 item["canonical_aspect"] = original["canonical_aspect"]
+
+#                 stored_results.append(item)
+#                 total_processed += 1
+
+#         execution_counter += 1
+#         progress.progress((exec_i + 1) / num_executions)
+#         time.sleep(0.2)
+
+#     # Save persistent
+#     with open(RESULT_JSON_PATH, "w", encoding="utf-8") as f:
+#         json.dump(stored_results, f, indent=2, ensure_ascii=False)
+
+#     pd.DataFrame(stored_results).to_csv(RESULT_CSV_PATH, index=False)
+
+#     st.success(f"✅ Completed {execution_counter} executions.")
+#     st.success(f"Total rows processed this run: {total_processed}")
+
 
 # # =====================================================
 # # 🤖 LLM PROCESSING FOR UNMATCHED PAIRS
