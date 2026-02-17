@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": "2026-02-17 16:13:55.516597",
+    "id": "The Company is also committed to expand IoT sector as manifestation of the future is now spirit, where the Company had analyzed shifting in mobile phone and internet utilization nowadays where all devices have been connected with internet, both handset and wearable devices providing solution for user's needs in daily activities.||iot future orientation",
+    "prompt": "\nYou are an ESG annotation validator.\n\nSentence:\n\"The Company is also committed to expand IoT sector as manifestation of the future is now spirit, where the Company had analyzed shifting in mobile phone and internet utilization nowadays where all devices have been connected with internet, both handset and wearable devices providing solution for user's needs in daily activities.\"\n\nAspect:\n\"iot future orientation\"\n\nReturn STRICT JSON:\n\n{\n  \"aspect_categories\": \"...\",\n  \"sentiment\": \"...\",\n  \"tones\": \"...\",\n  \"confidence\": 0.0,\n  \"reasoning\": \"...\"\n}\n",
+    "raw_response": "{\n  \"id\": \"chatcmpl-vjewelqho28h91f2c75up\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771319618,\n  \"model\": \"mistralai/ministral-3-3b\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n{\\n  \\\"aspect_categories\\\": {\\n    \\\"iot_future_orientation\\\": {\\n      \\\"validity\\\": \\\"PARTIAL\\\",\\n      \\\"details\\\": [\\n        {\\n          \\\"element\\\": \\\"expansion_of_IoT_sector_as_a_future_mandate\\\",\\n          \\\"confidence\\\": 0.75,\\n          \\\"reasoning\\\": \\\"The phrase 'expand IoT sector' explicitly references future-oriented growth, but lacks explicit ESG commitment language (e.g., sustainability goals, net-zero targets, or long-term environmental/technological impact frameworks). The mention of 'future is now spirit' is vague and does not align with measurable ESG criteria.\\\"\\n        },\\n        {\\n          \\\"element\\\": \\\"connected_devices_and_user_solutions\\\",\\n          \\\"confidence\\\": 0.6,\\n          \\\"reasoning\\\": \\\"While the sentence describes IoT's role in modern connectivity (e.g., mobile phones, wearables), it does not address:\\n            - Environmental impact of device manufacturing/recycling.\\n            - Ethical considerations (e.g., data privacy, digital divide).\\n            - Societal benefits beyond user convenience (e.g., energy efficiency, accessibility improvements).\\\"\\n        },\\n        {\\n          \\\"element\\\": \\\"contextual_weaknesses\\\",\\n          \\\"confidence\\\": 0.8,\\n          \\\"reasoning\\\": \\\"The analysis of 'mobile phone and internet utilization' is descriptive but not transformative for ESG. No mention of:\\n            - Carbon footprint reduction via IoT adoption.\\n            - Circular economy practices (e.g., device repurposing).\\n            - Alignment with global ESG frameworks (e.g., UN SDGs, EU Green Deal).\\\"\\n        }\\n      ]\\n    },\\n    \\\"sentiment\\\": {\\n      \\\"overall\\\": \\\"NEUTRAL\\\",\\n      \\\"detailed\\\": [\\n        { \\\"category\\\": \\\"proactive\\\", \\\"score\\\": 0.3 },\\n        { \\\"category\\\": \\\"optimistic\\\", \\\"score\\\":\",\n        \"tool_calls\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"length\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 136,\n    \"completion_tokens\": 400,\n    \"total_tokens\": 536\n  },\n  \"stats\": {},\n  \"system_fingerprint\": \"mistralai/ministral-3-3b\"\n}",
+    "parsed_json": {
+      "id": "chatcmpl-vjewelqho28h91f2c75up",
+      "object": "chat.completion",
+      "created": 1771319618,
+      "model": "mistralai/ministral-3-3b",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"aspect_categories\": {\n    \"iot_future_orientation\": {\n      \"validity\": \"PARTIAL\",\n      \"details\": [\n        {\n          \"element\": \"expansion_of_IoT_sector_as_a_future_mandate\",\n          \"confidence\": 0.75,\n          \"reasoning\": \"The phrase 'expand IoT sector' explicitly references future-oriented growth, but lacks explicit ESG commitment language (e.g., sustainability goals, net-zero targets, or long-term environmental/technological impact frameworks). The mention of 'future is now spirit' is vague and does not align with measurable ESG criteria.\"\n        },\n        {\n          \"element\": \"connected_devices_and_user_solutions\",\n          \"confidence\": 0.6,\n          \"reasoning\": \"While the sentence describes IoT's role in modern connectivity (e.g., mobile phones, wearables), it does not address:\n            - Environmental impact of device manufacturing/recycling.\n            - Ethical considerations (e.g., data privacy, digital divide).\n            - Societal benefits beyond user convenience (e.g., energy efficiency, accessibility improvements).\"\n        },\n        {\n          \"element\": \"contextual_weaknesses\",\n          \"confidence\": 0.8,\n          \"reasoning\": \"The analysis of 'mobile phone and internet utilization' is descriptive but not transformative for ESG. No mention of:\n            - Carbon footprint reduction via IoT adoption.\n            - Circular economy practices (e.g., device repurposing).\n            - Alignment with global ESG frameworks (e.g., UN SDGs, EU Green Deal).\"\n        }\n      ]\n    },\n    \"sentiment\": {\n      \"overall\": \"NEUTRAL\",\n      \"detailed\": [\n        { \"category\": \"proactive\", \"score\": 0.3 },\n        { \"category\": \"optimistic\", \"score\":",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "length"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 136,
+        "completion_tokens": 400,
+        "total_tokens": 536
+      },
+      "stats": {},
+      "system_fingerprint": "mistralai/ministral-3-3b"
+    },
+    "parse_error": null
+  },
+  {
+    "timestamp": "2026-02-17 16:14:11.958992",
+    "id": "Sejalan dengan kebijakan pemerintah mengenai ekonomi, kami mengupayakan pencapaian target karbon netral pada tahun 2050 dan dapat bebas emisi gas rumah kaca (GRK) pada tahun 2055.||net zero targets",
+    "prompt": "\nYou are an ESG annotation validator.\n\nSentence:\n\"Sejalan dengan kebijakan pemerintah mengenai ekonomi, kami mengupayakan pencapaian target karbon netral pada tahun 2050 dan dapat bebas emisi gas rumah kaca (GRK) pada tahun 2055.\"\n\nAspect:\n\"net zero targets\"\n\nReturn STRICT JSON:\n\n{\n  \"aspect_categories\": \"...\",\n  \"sentiment\": \"...\",\n  \"tones\": \"...\",\n  \"confidence\": 0.0,\n  \"reasoning\": \"...\"\n}\n",
+    "raw_response": "{\n  \"id\": \"chatcmpl-s55orzrd5zerkkjana9j\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771319635,\n  \"model\": \"mistralai/ministral-3-3b\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n{\\n  \\\"aspect_categories\\\": [\\n    {\\n      \\\"category\\\": \\\"Net Zero Commitment (Qualitative)\\\",\\n      \\\"subcategories\\\": [\\\"Scope of Commitment\\\", \\\"Alignment with Global Standards\\\"],\\n      \\\"details\\\": [\\n        {\\n          \\\"scope_of_commitment\\\": {\\n            \\\"target_year\\\": \\\"2050\\\",\\n            \\\"net_zero_definition\\\": \\\"Carbon neutrality (achieved through offsetting or reduction efforts, though not explicitly stated)\\\",\\n            \\\"ambition_level\\\": \\\"Moderate (aligned with global ESG standards but lacks specific methodologies for verification)\\\"\\n          },\\n          \\\"alignment_with_global_standards\\\": {\\n            \\\"relevant_initiatives\\\": [\\\"UN SDGs (Goal 13: Climate Action)\\\", \\\"Science-Based Targets initiative (SBTi)\\\"],\\n            \\\"critique\\\": [\\n              \\\"The statement does not explicitly reference SBTi or other formal frameworks for net-zero verification.\\\",\\n              \\\"No mention of Scope 1, 2, and 3 emissions accounting, nor carbon offsetting mechanisms.\\\"\\n            ]\\n          }\\n        }\\n      ],\\n      \\\"validity\\\": {\\n        \\\"strict_esg_compliance\\\": false,\\n        \\\"reasoning\\\": [\\n          \\\"The claim is **not strictly ESG-compliant** because it lacks transparency in methodology, verification process, or Scope 3 emissions accounting.\\\",\\n          \\\"While the target year (2050) aligns with global climate goals, the phrasing 'pencapaian target karbon netral' ('achieving carbon neutrality') is ambiguous—does this imply **net-zero** or just **carbon reduction**? If interpreted as net-zero, no mechanisms for verification are provided.\\\",\\n          \\\"The mention of 'GRK bebas emisi' ('free from emissions') in 2055 is **not a standard net-zero definition** (net-zero typically refers to balancing emissions with removals/offsets). This could imply **absolute zero emissions**, which\",\n        \"tool_calls\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"length\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 132,\n    \"completion_tokens\": 400,\n    \"total_tokens\": 532\n  },\n  \"stats\": {},\n  \"system_fingerprint\": \"mistralai/ministral-3-3b\"\n}",
+    "parsed_json": {
+      "id": "chatcmpl-s55orzrd5zerkkjana9j",
+      "object": "chat.completion",
+      "created": 1771319635,
+      "model": "mistralai/ministral-3-3b",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"aspect_categories\": [\n    {\n      \"category\": \"Net Zero Commitment (Qualitative)\",\n      \"subcategories\": [\"Scope of Commitment\", \"Alignment with Global Standards\"],\n      \"details\": [\n        {\n          \"scope_of_commitment\": {\n            \"target_year\": \"2050\",\n            \"net_zero_definition\": \"Carbon neutrality (achieved through offsetting or reduction efforts, though not explicitly stated)\",\n            \"ambition_level\": \"Moderate (aligned with global ESG standards but lacks specific methodologies for verification)\"\n          },\n          \"alignment_with_global_standards\": {\n            \"relevant_initiatives\": [\"UN SDGs (Goal 13: Climate Action)\", \"Science-Based Targets initiative (SBTi)\"],\n            \"critique\": [\n              \"The statement does not explicitly reference SBTi or other formal frameworks for net-zero verification.\",\n              \"No mention of Scope 1, 2, and 3 emissions accounting, nor carbon offsetting mechanisms.\"\n            ]\n          }\n        }\n      ],\n      \"validity\": {\n        \"strict_esg_compliance\": false,\n        \"reasoning\": [\n          \"The claim is **not strictly ESG-compliant** because it lacks transparency in methodology, verification process, or Scope 3 emissions accounting.\",\n          \"While the target year (2050) aligns with global climate goals, the phrasing 'pencapaian target karbon netral' ('achieving carbon neutrality') is ambiguous—does this imply **net-zero** or just **carbon reduction**? If interpreted as net-zero, no mechanisms for verification are provided.\",\n          \"The mention of 'GRK bebas emisi' ('free from emissions') in 2055 is **not a standard net-zero definition** (net-zero typically refers to balancing emissions with removals/offsets). This could imply **absolute zero emissions**, which",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "length"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 132,
+        "completion_tokens": 400,
+        "total_tokens": 532
+      },
+      "stats": {},
+      "system_fingerprint": "mistralai/ministral-3-3b"
+    },
+    "parse_error": null
+  },
+  {
+    "timestamp": "2026-02-17 16:14:28.287866",
+    "id": "Total of 14 water towers provided 6 regions (Bali, Bekasi, Lombok, Medan, Surabaya and Tangerang) access to clean water.||water access",
+    "prompt": "\nYou are an ESG annotation validator.\n\nSentence:\n\"Total of 14 water towers provided 6 regions (Bali, Bekasi, Lombok, Medan, Surabaya and Tangerang) access to clean water.\"\n\nAspect:\n\"water access\"\n\nReturn STRICT JSON:\n\n{\n  \"aspect_categories\": \"...\",\n  \"sentiment\": \"...\",\n  \"tones\": \"...\",\n  \"confidence\": 0.0,\n  \"reasoning\": \"...\"\n}\n",
+    "raw_response": "{\n  \"id\": \"chatcmpl-h8meyblvmgjhdyngvcyeb\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771319652,\n  \"model\": \"mistralai/ministral-3-3b\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n{\\n  \\\"aspect_categories\\\": [\\n    {\\n      \\\"category\\\": \\\"Environmental (Water Access & Sustainability)\\\",\\n      \\\"subcategory\\\": \\\"Accessibility of Clean Water Infrastructure\\\",\\n      \\\"details\\\": [\\n        {\\n          \\\"impact_type\\\": \\\"Positive\\\",\\n          \\\"description\\\": \\\"The statement explicitly mentions the provision of clean water infrastructure (water towers) to multiple regions, which aligns with ESG goals related to **access to basic services** and **environmental sustainability**. This is a clear contribution toward reducing water scarcity and improving public health.\\\"\\n        }\\n      ]\\n    },\\n    {\\n      \\\"category\\\": \\\"Social (Community Well-being & Equity)\\\",\\n      \\\"subcategory\\\": \\\"Equitable Water Distribution\\\",\\n      \\\"details\\\": [\\n        {\\n          \\\"impact_type\\\": \\\"Positive\\\",\\n          \\\"description\\\": \\\"The mention of **six regions** receiving water access suggests a structured effort to distribute resources equitably, which supports ESG principles of **social responsibility** and **inclusivity**. However, the lack of specific metrics (e.g., population served, sustainability of supply) reduces confidence in broader impact assessment.\\\"\\n        }\\n      ]\\n    },\\n    {\\n      \\\"category\\\": \\\"Governance (Policy & Infrastructure Planning)\\\",\\n      \\\"subcategory\\\": \\\"Regional Water Management\\\",\\n      \\\"details\\\": [\\n        {\\n          \\\"impact_type\\\": \\\"Neutral\\\",\\n          \\\"description\\\": \\\"The statement describes an existing infrastructure initiative but does not provide details on **long-term sustainability**, **financial viability**, or **compliance with environmental regulations**. This limits confidence in governance-related ESG implications.\\\"\\n        }\\n      ]\\n    }\\n  ],\\n  \\\"sentiment\\\": {\\n    \\\"overall\\\": \\\"Positive\\\",\\n    \\\"justification\\\": \\\"The statement is framed as a **provision of service** (clean water) to underserved regions, which aligns with ESG goals. However, the absence of quantitative or qualitative depth on impact reduces confidence in broader ESG\",\n        \"tool_calls\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"length\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 116,\n    \"completion_tokens\": 400,\n    \"total_tokens\": 516\n  },\n  \"stats\": {},\n  \"system_fingerprint\": \"mistralai/ministral-3-3b\"\n}",
+    "parsed_json": {
+      "id": "chatcmpl-h8meyblvmgjhdyngvcyeb",
+      "object": "chat.completion",
+      "created": 1771319652,
+      "model": "mistralai/ministral-3-3b",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"aspect_categories\": [\n    {\n      \"category\": \"Environmental (Water Access & Sustainability)\",\n      \"subcategory\": \"Accessibility of Clean Water Infrastructure\",\n      \"details\": [\n        {\n          \"impact_type\": \"Positive\",\n          \"description\": \"The statement explicitly mentions the provision of clean water infrastructure (water towers) to multiple regions, which aligns with ESG goals related to **access to basic services** and **environmental sustainability**. This is a clear contribution toward reducing water scarcity and improving public health.\"\n        }\n      ]\n    },\n    {\n      \"category\": \"Social (Community Well-being & Equity)\",\n      \"subcategory\": \"Equitable Water Distribution\",\n      \"details\": [\n        {\n          \"impact_type\": \"Positive\",\n          \"description\": \"The mention of **six regions** receiving water access suggests a structured effort to distribute resources equitably, which supports ESG principles of **social responsibility** and **inclusivity**. However, the lack of specific metrics (e.g., population served, sustainability of supply) reduces confidence in broader impact assessment.\"\n        }\n      ]\n    },\n    {\n      \"category\": \"Governance (Policy & Infrastructure Planning)\",\n      \"subcategory\": \"Regional Water Management\",\n      \"details\": [\n        {\n          \"impact_type\": \"Neutral\",\n          \"description\": \"The statement describes an existing infrastructure initiative but does not provide details on **long-term sustainability**, **financial viability**, or **compliance with environmental regulations**. This limits confidence in governance-related ESG implications.\"\n        }\n      ]\n    }\n  ],\n  \"sentiment\": {\n    \"overall\": \"Positive\",\n    \"justification\": \"The statement is framed as a **provision of service** (clean water) to underserved regions, which aligns with ESG goals. However, the absence of quantitative or qualitative depth on impact reduces confidence in broader ESG",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "length"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 116,
+        "completion_tokens": 400,
+        "total_tokens": 516
+      },
+      "stats": {},
+      "system_fingerprint": "mistralai/ministral-3-3b"
+    },
+    "parse_error": null
+  }
+]
