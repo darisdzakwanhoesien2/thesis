@@ -1,5 +1,0 @@
-{
-  "run_id": "run_20260217_183712",
-  "execution": 2,
-  "raw_response": "REQUEST_ERROR: HTTPConnectionPool(host='localhost', port=1234): Read timed out. (read timeout=120)"
-}
